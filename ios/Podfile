@@ -22,6 +22,8 @@ target 'piggy' do
     pod 'GoogleMaps'  # Remove this line if you don't want to support GoogleMaps on iOS
     pod 'react-native-maps', path: '../node_modules/react-native-maps'
     pod 'react-native-google-maps', path: '../node_modules/react-native-maps'  # Remove this line if you don't want to support GoogleMaps on iOS
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
+
 end
 
 post_install do |installer|
