@@ -2,21 +2,11 @@
 'use strict';
 
 import React from 'react';
-import { StyleSheet, Text, Image, View } from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 
 import MapView from 'react-native-maps';
 
-export default class App extends React.PureComponent {
-  static navigationOptions = {
-    drawerLabel: 'MapScreen',
-    drawerIcon: ({ tintColor }) => (
-      <Image
-        source={require('../assets/imgs/menu.png')}
-        style={[styles.icon, {tintColor: tintColor}]}
-      />
-    ),
-  };
-
+export default class SecondScreen extends React.PureComponent {
   constructor(props){
     super(props);
     this.state = {
@@ -36,8 +26,14 @@ export default class App extends React.PureComponent {
 
   render() {
     return (
-      <MapView style={StyleSheet.absoluteFillObject}
-        region={this.state.position}/>
+      <View style={styles.container}>
+        <MapView style={StyleSheet.absoluteFillObject}
+          region={this.state.position}/>
+        <TextInput style={styles.input} placeholder='¿Qué querés enviar?'>
+        </TextInput>
+        <TextInput style={styles.input} placeholder='¿A dónde?'>
+        </TextInput>
+      </View>
     );
   }
 
@@ -55,13 +51,11 @@ export default class App extends React.PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1
   },
-  icon: {
-    width: 24,
-    height: 24,
+  input: {
+    height: 44,
+    backgroundColor: 'white',
+    margin: 10
   }
 });
