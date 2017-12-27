@@ -4,24 +4,35 @@
   "private": true,
   "devDependencies": {
     "babel-eslint": "^8.0.3",
+    "babel-jest": "22.0.4",
+    "babel-preset-react-native": "4.0.0",
     "babel-preset-react-native-stage-0": "^1.0.1",
     "eslint": "^4.14.0",
     "eslint-plugin-flowtype": "^2.40.1",
     "eslint-plugin-jest": "^21.5.0",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.5.1",
-    "flow-bin": "^0.61.0",
-    "jest-expo": "23.0.0",
+    "flow-bin": "^0.58.0",
+    "flow-typed": "^2.2.3",
+    "jest": "22.0.4",
     "react-test-renderer": "16.2.0"
   },
   "scripts": {
-    "start": "react-native start",
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "test": "node node_modules/jest/bin/jest.js --watch"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "flow": "flow",
+    "lint": "eslint ."
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "react-native",
+    "collectCoverage": true,
+    "coverageDirectory": "__coverage__",
+    "testRegex": "./__tests__/[^setup].*.js$",
+    "transformIgnorePatterns": ["node_modules/(?!react-native|native-base|react-navigation|react-native-fabric)"],
+    "setupFiles": ["./__tests__/setup.js"],
+    "globals": {
+      "navigator": false
+    }
   },
   "dependencies": {
     "react": "16.2.0",

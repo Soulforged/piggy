@@ -6,8 +6,21 @@ import { StyleSheet, TextInput, View } from 'react-native';
 
 import MapView from 'react-native-maps';
 
-export default class HomeScreen extends React.PureComponent {
-  constructor(props){
+type Position = {
+  latitude: number,
+  longitude: number,
+  latitudeDelta: number,
+  longitudeDelta: number
+}
+
+type Props = {};
+
+type State = {
+  position: Position
+};
+
+export default class HomeScreen extends React.PureComponent<Props, State> {
+  constructor(props: Props){
     super(props);
     this.state = {
       position: {

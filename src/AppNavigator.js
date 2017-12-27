@@ -6,9 +6,8 @@ import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { DrawerNavigator } from 'react-navigation';
 
 import HomeScreen from './HomeScreen';
-import SecondScreen from './SecondScreen';
 
-export default class AppNavigator extends React.PureComponent {
+export default class AppNavigator extends React.PureComponent<{}> {
   render(){
     return (
       <View>
@@ -30,26 +29,15 @@ const Navigator = DrawerNavigator({
     screen: HomeScreen,
     navigationOptions: {
       drawerLabel: 'HomeScreen',
-      drawerIcon: ({ tintColor }) => (
+      displayName: 'HomeScreen',
+      drawerIcon: ({ rnNavTintColor }) => (
         <Image
           source={require('../assets/imgs/menu.png')}
-          style={[styles.icon, {tintColor: tintColor}]}
+          style={[styles.icon, {tintColor: rnNavTintColor}]}
         />
       ),
     }
   },
-  Second: {
-    screen: SecondScreen,
-    navigationOptions: {
-      drawerLabel: 'SecondScreen',
-      drawerIcon: ({ tintColor }) => (
-        <Image
-          source={require('../assets/imgs/menu.png')}
-          style={[styles.icon, {tintColor: tintColor}]}
-        />
-      ),
-    }
-  }
 });
 
 const styles = StyleSheet.create({

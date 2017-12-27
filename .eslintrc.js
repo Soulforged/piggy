@@ -40,7 +40,9 @@ module.exports = {
       'error',
       'always'
     ],
-    'no-console': 'off'
+    'no-console': 'off',
+    "react/display-name": [0],
+    'react/prop-types': [2, { ignore: ['navigation', 'rnNavTintColor']}]
   },
   'globals': {
     'navigator': true
