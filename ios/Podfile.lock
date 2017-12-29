@@ -4,51 +4,54 @@ PODS:
   - GoogleMaps/Base (2.5.0)
   - GoogleMaps/Maps (2.5.0):
     - GoogleMaps/Base
-  - React (0.50.3):
-    - React/Core (= 0.50.3)
+  - React (0.51.0):
+    - React/Core (= 0.51.0)
+  - react-native-config (0.11.2):
+    - React
   - react-native-google-maps (0.19.0):
     - GoogleMaps (= 2.5.0)
     - React
   - react-native-maps (0.19.0):
     - React
-  - React/BatchedBridge (0.50.3):
+  - React/BatchedBridge (0.51.0):
     - React/Core
     - React/cxxreact_legacy
-  - React/Core (0.50.3):
-    - yoga (= 0.50.3.React)
-  - React/cxxreact_legacy (0.50.3):
+  - React/Core (0.51.0):
+    - yoga (= 0.51.0.React)
+  - React/cxxreact_legacy (0.51.0):
     - React/jschelpers_legacy
-  - React/fishhook (0.50.3)
-  - React/jschelpers_legacy (0.50.3)
-  - React/RCTActionSheet (0.50.3):
+  - React/fishhook (0.51.0)
+  - React/jschelpers_legacy (0.51.0)
+  - React/RCTActionSheet (0.51.0):
     - React/Core
-  - React/RCTAnimation (0.50.3):
+  - React/RCTAnimation (0.51.0):
     - React/Core
-  - React/RCTBlob (0.50.3):
+  - React/RCTBlob (0.51.0):
     - React/Core
-  - React/RCTGeolocation (0.50.3):
+  - React/RCTGeolocation (0.51.0):
     - React/Core
-  - React/RCTImage (0.50.3):
+  - React/RCTImage (0.51.0):
     - React/Core
     - React/RCTNetwork
-  - React/RCTLinkingIOS (0.50.3):
+  - React/RCTLinkingIOS (0.51.0):
     - React/Core
-  - React/RCTNetwork (0.50.3):
+  - React/RCTNetwork (0.51.0):
     - React/Core
-  - React/RCTSettings (0.50.3):
+  - React/RCTSettings (0.51.0):
     - React/Core
-  - React/RCTText (0.50.3):
+  - React/RCTText (0.51.0):
     - React/Core
-  - React/RCTVibration (0.50.3):
+  - React/RCTVibration (0.51.0):
     - React/Core
-  - React/RCTWebSocket (0.50.3):
+  - React/RCTWebSocket (0.51.0):
     - React/Core
     - React/fishhook
     - React/RCTBlob
-  - yoga (0.50.3.React)
+  - yoga (0.51.0.React)
 
 DEPENDENCIES:
   - GoogleMaps
+  - react-native-config (from `../node_modules/react-native-config`)
   - react-native-google-maps (from `../node_modules/react-native-maps`)
   - react-native-maps (from `../node_modules/react-native-maps`)
   - React/BatchedBridge (from `../node_modules/react-native`)
@@ -68,6 +71,8 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   React:
     :path: ../node_modules/react-native
+  react-native-config:
+    :path: ../node_modules/react-native-config
   react-native-google-maps:
     :path: ../node_modules/react-native-maps
   react-native-maps:
@@ -77,11 +82,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
-  React: 0ba6cae888dc82dc47d6d5f3090615e1b5f6f3e7
+  React: 352f02f1db6e4744f9a758527e13e3fdefbbd6ba
+  react-native-config: 438c5f9279694b32c5b1ab3f448f62d4af417dae
   react-native-google-maps: dc6d7644b0517e6e232644d2b66004714b91e152
   react-native-maps: d3b689927722398a12a4b3007fd9a0c60e1c48cd
-  yoga: faecc6be81ca7823ccbb470b93a1b228499fa1c0
+  yoga: b5d96400ca8b2936965a7a6516da7c1177f432a3
 
-PODFILE CHECKSUM: 1a50983bc46bb1e407e093f46bf5ff0de10a686f
+PODFILE CHECKSUM: 53280d51bbf0c748726ed833e3c17587206c3db8
 
 COCOAPODS: 1.3.1

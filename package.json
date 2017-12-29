@@ -4,9 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
-    "flow": "flow",
-    "lint": "eslint ."
+    "test": "eslint . && jest",
+    "flow": "flow"
   },
   "dependencies": {
     "react": "16.2.0",
