@@ -24,22 +24,10 @@ module.exports = {
     'jest'
   ],
   'rules': {
-    'indent': [
-      'error',
-      2
-    ],
-    'linebreak-style': [
-      'error',
-      'unix'
-    ],
-    'quotes': [
-      'error',
-      'single'
-    ],
-    'semi': [
-      'error',
-      'always'
-    ],
+    'indent': ['error', 2],
+    'linebreak-style': ['error','unix'],
+    'quotes': ['error','single'],
+    'semi': ['error','always'],
     'no-console': 'off',
     "react/display-name": [0],
     'react/prop-types': [2, { ignore: ['navigation', 'rnNavTintColor']}]

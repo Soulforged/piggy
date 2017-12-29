@@ -2,6 +2,21 @@
   "name": "piggy",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "flow": "flow",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "react": "16.2.0",
+    "react-native": "0.51.0",
+    "react-native-config": "^0.11.2",
+    "react-native-maps": "^0.19.0",
+    "react-navigation": "^1.0.0-beta.22",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
+  },
   "devDependencies": {
     "babel-eslint": "^8.0.3",
     "babel-jest": "22.0.4",
@@ -16,31 +31,5 @@
     "flow-typed": "^2.2.3",
     "jest": "22.0.4",
     "react-test-renderer": "16.2.0"
-  },
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
-    "flow": "flow",
-    "lint": "eslint ."
-  },
-  "jest": {
-    "preset": "react-native",
-    "collectCoverage": true,
-    "coverageDirectory": "__coverage__",
-    "testRegex": "./__tests__/[^setup].*.js$",
-    "transformIgnorePatterns": ["node_modules/(?!react-native|native-base|react-navigation|react-native-fabric)"],
-    "setupFiles": ["./__tests__/setup.js"],
-    "globals": {
-      "navigator": false
-    }
-  },
-  "dependencies": {
-    "react": "16.2.0",
-    "react-native": "0.51.0",
-    "react-native-config": "^0.11.2",
-    "react-native-maps": "^0.19.0",
-    "react-navigation": "^1.0.0-beta.22",
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
   }
 }

@@ -29,15 +29,24 @@ jest.mock('react-native-maps', () => {
 });
 
 jest.mock('Linking', () => {
-    return {
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        openURL: jest.fn(),
-        canOpenURL: jest.fn(),
-        getInitialURL: jest.fn(),
-    }
+  return {
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    openURL: jest.fn(),
+    canOpenURL: jest.fn(),
+    getInitialURL: jest.fn(),
+  };
 });
 
 jest.mock('WebView', () => 'WebView');
 
 jest.mock('DatePickerIOS', () => 'DatePickerIOS');
+
+// Globals
+
+const mockGeolocation = {
+  getCurrentPosition: jest.fn(),
+  watchPosition: jest.fn()
+};
+
+global.navigator.geolocation = mockGeolocation;
