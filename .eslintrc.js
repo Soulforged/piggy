@@ -33,6 +33,7 @@ module.exports = {
     'react/prop-types': [2, { ignore: ['navigation', 'rnNavTintColor']}]
   },
   'globals': {
-    'navigator': true
+    'navigator': true,
+    '__DEV__': true
   }
 };

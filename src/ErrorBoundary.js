@@ -1,10 +1,12 @@
 //@flow
 'use strict';
 
-import React from 'react';
+import * as React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-type Props = {};
+type Props = {
+  children?: React.Node
+};
 type State = {
   hasError: boolean
 };
@@ -17,7 +19,7 @@ export default class ErrorBoundary extends React.PureComponent<Props, State> {
     };
   }
 
-  componentDidCatch(error, info) {
+  componentDidCatch(error: Error, info: string) {
     this.setState({ hasError: true });
     // You can also log the error to an error reporting service
     console.log(error, info);
@@ -35,6 +37,6 @@ export default class ErrorBoundary extends React.PureComponent<Props, State> {
         </View>
       );
     }
-    return false;
+    return this.props.children;
   }
 }
