@@ -6,17 +6,10 @@ import { StyleSheet, TextInput, View } from 'react-native';
 
 import MapView from 'react-native-maps';
 
-type Position = {
-  latitude: number,
-  longitude: number,
-  latitudeDelta: number,
-  longitudeDelta: number
-}
-
 type Props = {};
 
 type State = {
-  position: Position
+  position: MapView.propTypes.region
 };
 
 export default class HomeScreen extends React.PureComponent<Props, State> {
