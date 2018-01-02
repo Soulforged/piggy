@@ -1,12 +1,8 @@
 //@flow
 import { combineReducers, createStore, applyMiddleware } from 'redux';
-import AppNavigation from './AppNavigation';
+import NavigationReducer from './NavigationReducer';
 
-const navReducer = (state, action) => {
-    const newState = AppNavigation.router.getStateForAction(action, state);
-    return newState || state;
-  },
-  middlewares = [];
+const middlewares = [];
 
 if (__DEV__) {
   const { logger } = require('redux-logger');
@@ -16,7 +12,7 @@ if (__DEV__) {
 
 export default () => {
   const rootReducer = combineReducers({
-    nav: navReducer
+    nav: NavigationReducer
   });
 
   return createStore(rootReducer, applyMiddleware(...middlewares));
