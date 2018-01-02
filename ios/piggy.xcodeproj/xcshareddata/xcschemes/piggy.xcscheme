@@ -14,6 +14,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5EAB308F1FFC066600C9BC34"
+               BuildableName = "build-env"
+               BlueprintName = "build-env"
+               ReferencedContainer = "container:piggy.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "83CBBA2D1A601D0E00E9B192"
                BuildableName = "libReact.a"
                BlueprintName = "React"

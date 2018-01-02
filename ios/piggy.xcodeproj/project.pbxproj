@@ -603,6 +603,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		5EAB308F1FFC066600C9BC34 /* build-env */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 5EAB30B51FFC066600C9BC34 /* Build configuration list for PBXLegacyTarget "build-env" */;
+			buildPhases = (
+			);
+			buildToolPath = "${SRCROOT}/build-env.sh";
+			buildWorkingDirectory = "${SRCROOT}";
+			dependencies = (
+			);
+			name = "build-env";
+			passBuildSettingsInEnvironment = 1;
+			productName = "build-env";
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		00E356ED1AD99517003FC87E /* piggyTests */ = {
 			isa = PBXNativeTarget;
@@ -704,6 +721,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
 					};
+					5EAB308F1FFC066600C9BC34 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 9LN73ZY3VU;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "piggy" */;
@@ -773,6 +795,7 @@
 				00E356ED1AD99517003FC87E /* piggyTests */,
 				2D02E47A1E0B4A5D006451C7 /* piggy-tvOS */,
 				2D02E48F1E0B4A5D006451C7 /* piggy-tvOSTests */,
+				5EAB308F1FFC066600C9BC34 /* build-env */,
 			);
 		};
 /* End PBXProject section */
@@ -1384,6 +1407,46 @@
 			};
 			name = Release;
 		};
+		5EAB30901FFC066600C9BC34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9LN73ZY3VU;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5EAB30911FFC066600C9BC34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9LN73ZY3VU;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1514,6 +1577,15 @@
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
 				2D02E49A1E0B4A5E006451C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EAB30B51FFC066600C9BC34 /* Build configuration list for PBXLegacyTarget "build-env" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EAB30901FFC066600C9BC34 /* Debug */,
+				5EAB30911FFC066600C9BC34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

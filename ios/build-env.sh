@@ -1,7 +1,7 @@
 #!/bin/bash
 
 TARGET_ENV=".env"
-RNCDIR="./node_modules/react-native-config/ios"
+RNCDIR="../node_modules/react-native-config/ios"
 
 if [ ! -z "$SYMROOT" ]; then
   # Build dotenv

@@ -33,7 +33,7 @@ const MainNavigation = StackNavigator(
       headerStyle: {backgroundColor: '#4C3E54'},
       title: 'Welcome!',
       headerTintColor: 'white',
-      headerLeft: <Text onPress={navigation.navigate('DrawerOpen')}>Menu</Text>
+      headerLeft: <Text onPress={() => navigation.navigate('DrawerToggle')}>Menu</Text>
     })
   });
 
