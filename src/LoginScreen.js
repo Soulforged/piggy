@@ -1,5 +1,4 @@
 //@flow
-'use strict';
 
 import React from 'react';
 import { TextInput, View, Button } from 'react-native';
@@ -18,23 +17,17 @@ type State = {
 };
 
 export default class LoginScreen extends React.PureComponent<Props, State> {
-  constructor(props: Props){
-    super(props);
+  _onPress(){
+    this.props.navigation.dispatch({ type: 'Login' });
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <TextInput style={styles.input} placeholder='Usuario'>
-        </TextInput>
-        <TextInput style={styles.input} placeholder='Password'>
-        </TextInput>
-        <Button title='Login' onPress={this._onPress.bind(this)} />
+        <TextInput style={styles.input} placeholder='Usuario' />
+        <TextInput style={styles.input} placeholder='Password' />
+        <Button title='Login' onPress={this._onPress} />
       </View>
     );
-  }
-
-  _onPress(){
-    this.props.navigation.dispatch({ type: 'Login' });
   }
 }

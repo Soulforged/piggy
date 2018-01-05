@@ -14,9 +14,11 @@ const LoginNavigation = StackNavigator(
     headerMode: 'float',
     initialRouteName: 'Login',
     navigationOptions: {
-      headerStyle: {backgroundColor: '#E73536'},
+      headerStyle: { backgroundColor: '#E73536' },
       title: 'Welcome',
       headerTintColor: 'white'
     }
-  });
+  }
+);
+
 export default LoginNavigation;

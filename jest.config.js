@@ -5,7 +5,7 @@ module.exports = {
   coveragePathIgnorePatterns: ['node_modules/', '__tests__/', 'assets/'],
   testPathIgnorePatterns: ['node_modules/', 'assets/', '__tests__/setup.js'],
   transformIgnorePatterns: [
-    'node_modules/(?!(react-native|native-base|react-navigation|react-native-fabric|react-native-maps)/)'
+    'node_modules/(?!(react-native|native-base|react-navigation|react-native-maps)/)'
   ],
   setupFiles: ['./__tests__/setup.js'],
   globals: {

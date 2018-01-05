@@ -1,17 +1,46 @@
 //@flow
-'use strict';
 
 import * as React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { compose, withState } from 'recompose';
 
-type Props = {
-  children?: React.Node
-};
+import { errorBoundary } from 'recompose-ext';
+
 type State = {
-  hasError: boolean
+  hasError: boolean,
+  setHasError: ((hasError: boolean): void)
+}
+
+const onCatch = (error: Error, info: string, { setHasError }: State) => {
+  setHasError(true);
+  // You can also log the error to an error reporting service
+  console.log(error, info);
 };
 
-export default class ErrorBoundary extends React.PureComponent<Props, State> {
+const component = ({ hasError: boolean, setHasError }) => {
+  if (hasError) {
+    // You can render any custom fallback UI
+    return (
+      <View>
+        <Text>Something went wrong.</Text>
+        <TouchableOpacity onPress={() => setHasError(false)}>
+          Close
+        </TouchableOpacity>
+      </View>
+    );
+  }
+  return props.children;
+};
+
+const ErrorBoundary = compose(
+  errorBoundary(onCatch),
+  withState('hasError', 'setHasError', 0),
+  component
+);
+
+export default ErrorBoundary;
+
+/*export default class ErrorBoundary extends React.PureComponent<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -39,4 +68,4 @@ export default class ErrorBoundary extends React.PureComponent<Props, State> {
     }
     return this.props.children;
   }
-}
+}*/

@@ -1,5 +1,4 @@
 //@flow
-'use strict';
 
 import React from 'react';
 import { Provider } from 'react-redux';
@@ -10,14 +9,12 @@ import ReduxNavigation from './src/ReduxNavigation';
 
 const store = createStore();
 
-export default class App extends React.PureComponent<{}> {
-  render() {
-    return(
-      <ErrorBoundary>
-        <Provider store={store}>
-          <ReduxNavigation />
-        </Provider>
-      </ErrorBoundary>
-    );
-  }
-}
+const App = () => (
+  <ErrorBoundary>
+    <Provider store={store}>
+      <ReduxNavigation />
+    </Provider>
+  </ErrorBoundary>
+);
+
+export default App;

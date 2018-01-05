@@ -9,6 +9,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:promise/recommended',
     'plugin:flowtype/recommended',
+    'airbnb'
   ],
   'parserOptions': {
     'ecmaFeatures': {
@@ -17,20 +18,29 @@ module.exports = {
     },
     'sourceType': 'module'
   },
-  'plugins': [
-    'react',
-    'promise',
-    'flowtype',
-    'jest'
-  ],
+  'plugins': [ 'react', 'promise', 'flowtype', 'jest', 'immutable' ],
   'rules': {
     'indent': ['error', 2],
     'linebreak-style': ['error','unix'],
     'quotes': ['error','single'],
     'semi': ['error','always'],
     'no-console': 'off',
-    "react/display-name": [0],
-    'react/prop-types': [2, { ignore: ['navigation', 'rnNavTintColor']}]
+    'jsx-quotes': ['error', 'prefer-single'],
+    'no-var': ['error'],
+    'no-undef': ['error'],
+    'no-param-reassign': ['error'],
+    'react/display-name': [0],
+    'react/prop-types': [2, { ignore: ['navigation', 'rnNavTintColor']}],
+    'spaced-comment': 'off',
+    'comma-dangle': 'off',
+    'space-before-blocks': 'off',
+    'no-underscore-dangle': 'off',
+    'react/no-multi-comp': [0, { 'ignoreStateless': false }],
+    // https://github.com/airbnb/javascript/issues/982
+    'react/jsx-filename-extension': ['error', { 'extensions': ['.js', '.jsx'] }],
+    'immutable/no-let': ['error'],
+    'immutable/no-this': ['error'],
+    'immutable/no-mutation': 'off',
   },
   'globals': {
     'navigator': true,

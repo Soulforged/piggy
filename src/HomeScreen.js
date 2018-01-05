@@ -1,5 +1,4 @@
 //@flow
-'use strict';
 
 import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
@@ -11,6 +10,17 @@ type Props = {};
 type State = {
   position: MapView.propTypes.region
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  input: {
+    height: 44,
+    backgroundColor: 'white',
+    margin: 10
+  }
+});
 
 export default class HomeScreen extends React.PureComponent<Props, State> {
   constructor(props: Props){
@@ -26,42 +36,37 @@ export default class HomeScreen extends React.PureComponent<Props, State> {
   }
 
   componentDidMount(){
-    navigator.geolocation.getCurrentPosition(this._onGeoSuccess.bind(this),
-      this._onGeoError);
+    navigator.geolocation.getCurrentPosition(
+      this._onGeoSuccess.bind(this),
+      this._onGeoError
+    );
+  }
+
+  _onGeoSuccess({ coords }){
+    this.setState({
+      position: {
+        ...this.state.position,
+        latitude: coords.latitude,
+        longitude: coords.longitude
+      }
+    });
+  }
+
+
+  _onGeoError(error){ // eslint-disable-line class-methods-use-this
+    console.log(error);
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <MapView style={StyleSheet.absoluteFillObject}
-          region={this.state.position}/>
-        <TextInput style={styles.input} placeholder='¿Qué querés enviar?'>
-        </TextInput>
-        <TextInput style={styles.input} placeholder='¿A dónde?'>
-        </TextInput>
+        <MapView
+          style={StyleSheet.absoluteFillObject}
+          region={this.state.position}
+        />
+        <TextInput style={styles.input} placeholder='¿Qué querés enviar?' />
+        <TextInput style={styles.input} placeholder='¿A dónde?' />
       </View>
     );
   }
-
-  _onGeoSuccess({coords}){
-    this.setState({position: {...this.state.position,
-      latitude: coords.latitude,
-      longitude: coords.longitude
-    }});
-  }
-
-  _onGeoError(error){
-    console.log(error);
-  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  input: {
-    height: 44,
-    backgroundColor: 'white',
-    margin: 10
-  }
-});

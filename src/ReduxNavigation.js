@@ -19,16 +19,6 @@ class ReduxNavigation extends React.Component<Props> {
     BackHandler.removeEventListener('hardwareBackPress', this._onBackPress.bind(this));
   }
 
-  render() {
-    const { dispatch, nav } = this.props;
-    const navigation = ReactNavigation.addNavigationHelpers({
-      dispatch,
-      state: nav
-    });
-
-    return <AppNavigation navigation={navigation} />;
-  }
-
   _onBackPress() {
     const { dispatch, nav } = this.props;
     if (nav.index === 0) {
@@ -38,6 +28,15 @@ class ReduxNavigation extends React.Component<Props> {
     return true;
   }
 
+  render() {
+    const { dispatch, nav } = this.props;
+    const navigation = ReactNavigation.addNavigationHelpers({
+      dispatch,
+      state: nav
+    });
+
+    return <AppNavigation navigation={navigation} />;
+  }
 }
 
 const mapStateToProps = state => ({ nav: state.nav });
