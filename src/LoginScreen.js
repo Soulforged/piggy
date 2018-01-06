@@ -2,32 +2,29 @@
 
 import React from 'react';
 import { TextInput, View, Button } from 'react-native';
+import { compose, withState } from 'recompose';
 
 import type { NavigationScreenProp } from 'react-navigation/src/TypeDefinition';
 
 import styles from './Styles';
 
 type Props = {
-  navigation: NavigationScreenProp<{}>
+  navigation: NavigationScreenProp<{}>,
+  setUsername: (text: string) => void,
+  setPassword: (text: string) => void
 };
 
-type State = {
-  +username: string,
-  +password: string
-};
+const component = ({ setUsername, setPassword, navigation }: Props) => (
+  <View style={styles.container}>
+    <TextInput style={styles.input} placeholder='Usuario' onChangeText={setUsername} />
+    <TextInput style={styles.input} placeholder='Password' onChangeText={setPassword} />
+    <Button title='Login' onPress={() => navigation.dispatch({ type: 'Login' })} />
+  </View>
+);
 
-export default class LoginScreen extends React.PureComponent<Props, State> {
-  _onPress(){
-    this.props.navigation.dispatch({ type: 'Login' });
-  }
+const LoginScreen = compose(
+  withState('username', 'setUsername', ''),
+  withState('password', 'setPassword', '')
+)(component);
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <TextInput style={styles.input} placeholder='Usuario' />
-        <TextInput style={styles.input} placeholder='Password' />
-        <Button title='Login' onPress={this._onPress} />
-      </View>
-    );
-  }
-}
+export default LoginScreen;

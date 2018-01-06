@@ -10,11 +10,11 @@ import ReduxNavigation from './src/ReduxNavigation';
 const store = createStore();
 
 const App = () => (
-  <ErrorBoundary>
-    <Provider store={store}>
+  <Provider store={store}>
+    <ErrorBoundary>
       <ReduxNavigation />
-    </Provider>
-  </ErrorBoundary>
+    </ErrorBoundary>
+  </Provider>
 );
 
 export default App;

@@ -3,6 +3,8 @@ import React from 'react';
 import { BackHandler } from 'react-native';
 import * as ReactNavigation from 'react-navigation';
 import { Action, ThunkAction, PromiseAction, connect } from 'react-redux';
+import { boundLifecycle } from 'recompose-ext';
+
 import AppNavigation from './AppNavigation';
 
 type Props = {
@@ -10,34 +12,34 @@ type Props = {
   nav: Object
 };
 
-class ReduxNavigation extends React.Component<Props> {
-  componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this._onBackPress.bind(this));
-  }
+const component = ({ dispatch, nav }: Props) => {
+  const navigation = ReactNavigation.addNavigationHelpers({
+    dispatch,
+    state: nav
+  });
 
-  componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress', this._onBackPress.bind(this));
-  }
+  return <AppNavigation navigation={navigation} />;
+};
 
-  _onBackPress() {
-    const { dispatch, nav } = this.props;
-    if (nav.index === 0) {
-      return false;
-    }
-    dispatch(ReactNavigation.NavigationActions.back());
-    return true;
+const _onBackPress = ({ dispatch, nav }) => {
+  if (nav.index === 0) {
+    return false;
   }
+  dispatch(ReactNavigation.NavigationActions.back());
+  return true;
+};
 
-  render() {
-    const { dispatch, nav } = this.props;
-    const navigation = ReactNavigation.addNavigationHelpers({
-      dispatch,
-      state: nav
-    });
+const withAndroidHandlers = boundLifecycle({
+  didMount(props) {
+    BackHandler.addEventListener('hardwareBackPress', _onBackPress.bind(props));
+  },
 
-    return <AppNavigation navigation={navigation} />;
+  willUnmount(props) {
+    BackHandler.removeEventListener('hardwareBackPress', _onBackPress.bind(props));
   }
-}
+});
+
+const ReduxNavigation = withAndroidHandlers(component);
 
 const mapStateToProps = state => ({ nav: state.nav });
 export default connect(mapStateToProps)(ReduxNavigation);

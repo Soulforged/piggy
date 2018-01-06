@@ -1,71 +1,38 @@
 //@flow
 
 import * as React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import { compose, withState } from 'recompose';
+import { boundLifecycle } from 'recompose-ext';
 
-import { errorBoundary } from 'recompose-ext';
-
-type State = {
+type Props = {
+  children: React.Node,
   hasError: boolean,
-  setHasError: ((hasError: boolean): void)
-}
+  setHasError: (hasError: boolean) => void
+};
 
-const onCatch = (error: Error, info: string, { setHasError }: State) => {
+const onCatch = (error: Error, info: string, { setHasError }: Props) => {
   setHasError(true);
   // You can also log the error to an error reporting service
   console.log(error, info);
 };
 
-const component = ({ hasError: boolean, setHasError }) => {
+const component = ({ hasError, setHasError, children }: Props) => {
   if (hasError) {
     // You can render any custom fallback UI
     return (
       <View>
         <Text>Something went wrong.</Text>
-        <TouchableOpacity onPress={() => setHasError(false)}>
-          Close
-        </TouchableOpacity>
+        <Button title='Close' onPress={() => setHasError(false)} />
       </View>
     );
   }
-  return props.children;
+  return children;
 };
 
 const ErrorBoundary = compose(
-  errorBoundary(onCatch),
-  withState('hasError', 'setHasError', 0),
-  component
-);
+  withState('hasError', 'setHasError', false),
+  boundLifecycle({ onCatch })
+)(component);
 
 export default ErrorBoundary;
-
-/*export default class ErrorBoundary extends React.PureComponent<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      hasError: false
-    };
-  }
-
-  componentDidCatch(error: Error, info: string) {
-    this.setState({ hasError: true });
-    // You can also log the error to an error reporting service
-    console.log(error, info);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return (
-        <View>
-          <Text>Something went wrong.</Text>
-          <TouchableOpacity onPress={() => this.setState({ hasError: false })}>
-            Close
-          </TouchableOpacity>
-        </View>
-      );
-    }
-    return this.props.children;
-  }
-}*/
