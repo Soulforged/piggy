@@ -1,14 +1,11 @@
 //@flow
 
 import React from 'react';
-import { Image, Text } from 'react-native';
+import { Text } from 'react-native';
 import { DrawerNavigator, StackNavigator } from 'react-navigation';
-
-import styles from './Styles';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from './HomeScreen';
-
-const menuImg = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==';
 
 const Navigator = DrawerNavigator({
   Home: {
@@ -16,10 +13,7 @@ const Navigator = DrawerNavigator({
     navigationOptions: {
       drawerLabel: 'HomeScreen',
       drawerIcon: ({ rnNavTintColor }) => (
-        <Image
-          source={{ uri: menuImg }}
-          style={[styles.icon, { tintColor: rnNavTintColor }]}
-        />
+        <Icon name='md-menu' size={30} color={rnNavTintColor} />
       ),
     }
   },
@@ -35,7 +29,13 @@ const MainNavigation = StackNavigator(
       headerStyle: { backgroundColor: '#4C3E54' },
       title: 'Welcome!',
       headerTintColor: 'white',
-      headerLeft: <Text onPress={() => navigation.navigate('DrawerToggle')}>Menu</Text>
+      headerLeft: (
+        <Icon.Button
+          name='md-menu'
+          size={30}
+          color={'white'}
+          onPress={() => navigation.navigate('DrawerToggle')} />
+      )
     })
   }
 );

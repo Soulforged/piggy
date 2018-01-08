@@ -9,7 +9,7 @@ module.exports = {
     '__tests__/setup.js'
   ],
   transformIgnorePatterns: [
-    'node_modules/(?!(react-native|native-base|react-navigation|react-native-maps|recompose-ext)/)'
+    'node_modules/(?!(react-native|native-base|react-navigation|react-native-maps|recompose-ext|react-native-vector-icons)/)'
   ],
   setupFiles: ['./__tests__/setup.js'],
   globals: {
