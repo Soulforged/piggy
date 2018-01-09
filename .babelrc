@@ -1,11 +1,11 @@
 {
   "presets": ["react-native"],
-  "env": {
-  	"development": {
-  		"plugins": ["transform-es2015-modules-commonjs"]
-  	},
-  	"test": {
-  		"plugins": ["transform-es2015-modules-commonjs"]
-  	}
-  }
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./src"],
+      "alias": {
+        "src": "./src",
+      }
+    }]
+  ]
 }

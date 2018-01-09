@@ -35,6 +35,8 @@ module.exports = {
     'comma-dangle': 'off',
     'space-before-blocks': 'off',
     'no-underscore-dangle': 'off',
+    //https://github.com/benmosher/eslint-plugin-import/issues/935
+    'import/no-extraneous-dependencies': 'off',
     'react/no-multi-comp': [0, { 'ignoreStateless': false }],
     // https://github.com/airbnb/javascript/issues/982
     'react/jsx-filename-extension': ['error', { 'extensions': ['.js', '.jsx'] }],
@@ -45,5 +47,10 @@ module.exports = {
   'globals': {
     'navigator': true,
     '__DEV__': true
+  },
+  'settings': {
+    'import/resolver': {
+      'babel-module': {}
+    }
   }
 };

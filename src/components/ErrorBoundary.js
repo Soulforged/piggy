@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import { View, Text, Button } from 'react-native';
-import { compose, withState } from 'recompose';
 import { boundLifecycle } from 'recompose-ext';
 
 type Props = {
@@ -30,9 +29,6 @@ const component = ({ hasError, setHasError, children }: Props) => {
   return children;
 };
 
-const ErrorBoundary = compose(
-  withState('hasError', 'setHasError', false),
-  boundLifecycle({ onCatch })
-)(component);
+const ErrorBoundary = boundLifecycle({ onCatch })(component);
 
 export default ErrorBoundary;

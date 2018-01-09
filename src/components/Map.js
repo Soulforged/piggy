@@ -2,21 +2,15 @@
 
 import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
-import { compose, withState } from 'recompose';
 import { boundLifecycle } from 'recompose-ext';
 
 import MapView from 'react-native-maps';
 
-import styles from './Styles';
+import styles from 'src/Styles';
 
-type Region = MapView.propTypes.region;
+import type { MapProps } from 'src/Types';
 
-type Props = {
-  position: Region,
-  setPosition: (newPos: Region) => void
-};
-
-const component = ({ position, setPosition }: Props) => (
+const component = ({ position, setPosition }: MapProps) => (
   <View style={styles.container}>
     <MapView
       style={StyleSheet.absoluteFillObject}
@@ -31,7 +25,7 @@ const component = ({ position, setPosition }: Props) => (
   </View>
 );
 
-const _onGeoSuccess = ({ position, setPosition }: Props, { coords }) => (
+const _onGeoSuccess = ({ position, setPosition }: MapProps, { coords }) => (
   setPosition({
     ...position,
     latitude: coords.latitude,
@@ -50,16 +44,6 @@ const withGeo = boundLifecycle({
   }
 });
 
-const initialPos = {
-  latitude: 37.78825,
-  longitude: -122.4324,
-  latitudeDelta: 0.0922,
-  longitudeDelta: 0.0421
-};
+const Map = withGeo(component);
 
-const HomeScreen = compose(
-  withState('position', 'setPosition', initialPos),
-  withGeo
-)(component);
-
-export default HomeScreen;
+export default Map;

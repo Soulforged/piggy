@@ -1,19 +1,20 @@
 //@flow
 import { combineReducers, createStore, applyMiddleware } from 'redux';
-import NavigationReducer from './NavigationReducer';
+import { nav, user } from 'src/reducers';
 
-const middlewares = [];
+const config = () => {
+  if (__DEV__) {
+    const { logger } = require('redux-logger'); // eslint-disable-line global-require
 
-if (__DEV__) {
-  const { logger } = require('redux-logger'); // eslint-disable-line global-require
+    return [logger];
+  }
+  return [];
+};
 
-  middlewares.push(logger);
-}
+const middlewares = config();
 
 export default () => {
-  const rootReducer = combineReducers({
-    nav: NavigationReducer
-  });
+  const rootReducer = combineReducers({ nav, user });
 
   return createStore(rootReducer, applyMiddleware(...middlewares));
 };

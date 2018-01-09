@@ -3,10 +3,10 @@
 import React from 'react';
 import { TextInput, View, Button } from 'react-native';
 import { compose, withState } from 'recompose';
-
 import type { NavigationScreenProp } from 'react-navigation/src/TypeDefinition';
 
-import styles from './Styles';
+import styles from 'src/Styles';
+import { login } from 'src/actions';
 
 type Props = {
   navigation: NavigationScreenProp<{}>,
@@ -18,7 +18,7 @@ const component = ({ setUsername, setPassword, navigation }: Props) => (
   <View style={styles.container}>
     <TextInput style={styles.input} placeholder='Usuario' onChangeText={setUsername} />
     <TextInput style={styles.input} placeholder='Password' onChangeText={setPassword} />
-    <Button title='Login' onPress={() => navigation.dispatch({ type: 'Login' })} />
+    <Button title='Login' onPress={() => navigation.dispatch(login())} />
   </View>
 );
 

@@ -3,16 +3,16 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import createStore from './src/Redux';
-import ErrorBoundary from './src/ErrorBoundary';
-import ReduxNavigation from './src/ReduxNavigation';
+import createStore from 'src/Redux';
+import { ErrorBoundary } from 'src/components';
+import { AppNavigation } from 'src/nav';
 
 const store = createStore();
 
 const App = () => (
   <Provider store={store}>
     <ErrorBoundary>
-      <ReduxNavigation />
+      <AppNavigation />
     </ErrorBoundary>
   </Provider>
 );

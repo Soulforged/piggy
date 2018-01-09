@@ -1,11 +1,10 @@
 //@flow
 
 import React from 'react';
-import { Text } from 'react-native';
 import { DrawerNavigator, StackNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import HomeScreen from './HomeScreen';
+import { HomeScreen } from 'src/screens';
 
 const Navigator = DrawerNavigator({
   Home: {
@@ -33,8 +32,9 @@ const MainNavigation = StackNavigator(
         <Icon.Button
           name='md-menu'
           size={30}
-          color={'white'}
-          onPress={() => navigation.navigate('DrawerToggle')} />
+          color='white'
+          onPress={() => navigation.navigate('DrawerToggle')}
+        />
       )
     })
   }

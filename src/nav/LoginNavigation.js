@@ -1,14 +1,10 @@
 //@flow
 import { StackNavigator } from 'react-navigation';
-import LoginScreen from './LoginScreen';
-import SignUpScreen from './SignUpScreen';
-import ForgotPasswordScreen from './ForgotPasswordScreen';
+import { LoginScreen } from 'src/screens';
 
 const LoginNavigation = StackNavigator(
   {
     Login: { screen: LoginScreen },
-    SignUp: { screen: SignUpScreen },
-    ForgotPassword: { screen: ForgotPasswordScreen }
   },
   {
     headerMode: 'float',
