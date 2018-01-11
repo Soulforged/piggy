@@ -1,8 +1,8 @@
 //@flow
-import type { ChangePosition, SetHasError } from 'src/actions/types';
-import { CHANGE_POSITION, SET_HAS_ERROR } from 'src/actions/types';
+import { handleActions } from 'react-actions';
+import { changePosition, setHasError } from 'src/actions';
 
-import type { Region, Action } from 'src/Types';
+import type { Region } from 'src/Types';
 
 type State = {
   position: Region,
@@ -19,14 +19,11 @@ const initialState = {
   hasError: false
 };
 
-export default ((state: State = initialState,
-    action: Action | ChangePosition | SetHasError) => {
-  switch (action.type) {
-  case CHANGE_POSITION:
-    return { ...state, position: action.position };
-  case SET_HAS_ERROR:
-    return { ...state, hasError: action.hasError };
-  default:
-    return state;
+export default handleActions({
+  [changePosition](state){
+    return { ...state, position: action.position }
+  },
+  [setHasError](state){
+    return { ...state, hasError: action.hasError }
   }
-});
+}, initialState);
