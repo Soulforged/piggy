@@ -1,8 +1,9 @@
 //@flow
 import { combineReducers, createStore, applyMiddleware } from 'redux';
-import { nav, user } from 'src/reducers';
+import { nav, ui } from 'src/reducers';
+import { ubex } from 'ubex';
 
-const config = () => {
+const middlewares = () => {
   if (__DEV__) {
     const { logger } = require('redux-logger'); // eslint-disable-line global-require
 
@@ -11,10 +12,8 @@ const config = () => {
   return [];
 };
 
-const middlewares = config();
-
 export default () => {
-  const rootReducer = combineReducers({ nav, user });
+  const rootReducer = combineReducers({ nav });
 
   return createStore(rootReducer, applyMiddleware(...middlewares));
 };

@@ -1,1 +1,3 @@
-export { AppNavigation as default } from './ReduxNavigation';
+import AppNavigation from './ReduxNavigation';
+
+export default AppNavigation;

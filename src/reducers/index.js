@@ -1,2 +1,6 @@
-export { NavigationReducer as nav } from './NavigationReducer';
-export { UserReducer as user } from './UserReducer';
+//@flow
+
+import nav from './NavigationReducer';
+import ui from './MainReducer';
+
+export { nav, ui };

@@ -4,7 +4,9 @@ import React from 'react';
 import { DrawerNavigator, StackNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import { HomeScreen } from 'src/screens';
+import { Screens as UbexScreens } from 'ubex';
+
+const { HomeScreen } = UbexScreens;
 
 const Navigator = DrawerNavigator({
   Home: {

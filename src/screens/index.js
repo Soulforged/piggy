@@ -1,2 +1,5 @@
-export * as HomeScreen from './HomeScreen';
-export * as LoginScreen from './LoginScreen';
+//@flow
+
+import LoginScreen from './LoginScreen';
+
+export { LoginScreen };

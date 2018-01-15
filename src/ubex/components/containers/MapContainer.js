@@ -1,10 +1,10 @@
 //@flow
 
 import { connect } from 'react-redux';
-import { changePosition } from 'src/actions';
-import Map from 'src/components/Map';
+import { changePosition } from 'ubex/actions';
+import Map from 'ubex/components/Map';
 
-import type { MapProps } from 'src/Types';
+import type { MapProps } from 'ubex/Types';
 
 const mapStateToProps = ({ position }: MapProps) => ({ position });
 
