@@ -1,12 +1,14 @@
 //@flow
 import { handleActions } from 'redux-actions';
-import { changePosition } from 'ubex/actions';
+import actions from 'ubex/actions';
 
 import type { Region } from 'ubex/Types';
 
 type State = {
   position: Region,
 }
+
+const { changePosition } = actions;
 
 const initialState = {
   position: {

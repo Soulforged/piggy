@@ -1,10 +1,12 @@
 //@flow
 import { handleActions } from 'redux-actions';
-import { setHasError } from 'src/actions';
+import actions from 'src/actions';
 
 type State = {
   hasError: boolean
 }
+
+const { setHasError } = actions;
 
 const initialState = {
   hasError: false

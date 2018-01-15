@@ -2,4 +2,4 @@
 
 import ubex from './UbexReducer';
 
-export { ubex };
+export { ubex }; // eslint-disable-line import/prefer-default-export

@@ -1,8 +1,10 @@
 //@flow
 
 import { connect } from 'react-redux';
-import { setHasError } from 'src/actions';
+import actions from 'src/actions';
 import ErrorBoundary from 'src/components/ErrorBoundary';
+
+const { setHasError } = actions;
 
 const mapStateToProps = ({ hasError }) => ({ hasError });
 

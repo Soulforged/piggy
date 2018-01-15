@@ -1,7 +1,7 @@
 //@flow
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { nav, ui } from 'src/reducers';
-import { ubex } from 'ubex';
+import { Reducers as ubex } from 'ubex';
 
 const middlewares = () => {
   if (__DEV__) {
@@ -13,7 +13,7 @@ const middlewares = () => {
 };
 
 export default () => {
-  const rootReducer = combineReducers({ nav });
+  const rootReducer = combineReducers({ nav, ui, ...ubex });
 
   return createStore(rootReducer, applyMiddleware(...middlewares));
 };
