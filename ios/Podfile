@@ -22,14 +22,18 @@ target 'piggy' do
     pod 'GoogleMaps'  # Remove this line if you don't want to support GoogleMaps on iOS
     pod 'react-native-maps', path: '../node_modules/react-native-maps'
     pod 'react-native-google-maps', path: '../node_modules/react-native-maps'  # Remove this line if you don't want to support GoogleMaps on iOS
-  pod 'react-native-config', :path => '../node_modules/react-native-config'
-
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
-
+    pod 'react-native-config', :path => '../node_modules/react-native-config'
+    pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
+    if target.name == 'yoga'
+      target.build_configurations.each do |config|
+        config.build_settings['GCC_TREAT_WARNINGS_AS_ERRORS'] = 'NO'
+        config.build_settings['GCC_WARN_64_TO_32_BIT_CONVERSION'] = 'NO'
+      end
+    end
     if target.name == 'react-native-google-maps'
       target.build_configurations.each do |config|
         config.build_settings['CLANG_ENABLE_MODULES'] = 'No'

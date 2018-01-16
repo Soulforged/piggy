@@ -3,7 +3,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import createStore from 'src/Redux';
+import createStore from 'src/reduxconf';
 import { ErrorBoundary } from 'src/components';
 import AppNavigation from 'src/nav';
 

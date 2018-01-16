@@ -6,7 +6,7 @@ PODS:
     - GoogleMaps/Base
   - React (0.51.0):
     - React/Core (= 0.51.0)
-  - react-native-config (0.11.2):
+  - react-native-config (0.11.5):
     - React
   - react-native-google-maps (0.19.0):
     - GoogleMaps (= 2.5.0)
@@ -47,6 +47,8 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
+  - RNVectorIcons (4.5.0):
+    - React
   - yoga (0.51.0.React)
 
 DEPENDENCIES:
@@ -66,6 +68,7 @@ DEPENDENCIES:
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTVibration (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga/yoga.podspec`)
 
 EXTERNAL SOURCES:
@@ -77,17 +80,20 @@ EXTERNAL SOURCES:
     :path: ../node_modules/react-native-maps
   react-native-maps:
     :path: ../node_modules/react-native-maps
+  RNVectorIcons:
+    :path: ../node_modules/react-native-vector-icons
   yoga:
     :path: ../node_modules/react-native/ReactCommon/yoga/yoga.podspec
 
 SPEC CHECKSUMS:
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
   React: 352f02f1db6e4744f9a758527e13e3fdefbbd6ba
-  react-native-config: 438c5f9279694b32c5b1ab3f448f62d4af417dae
+  react-native-config: 11b925080b49cb18299840dd084fc47709306313
   react-native-google-maps: dc6d7644b0517e6e232644d2b66004714b91e152
   react-native-maps: d3b689927722398a12a4b3007fd9a0c60e1c48cd
+  RNVectorIcons: 00632755ab42ae7b7d1a5877c9840d71e808efad
   yoga: b5d96400ca8b2936965a7a6516da7c1177f432a3
 
-PODFILE CHECKSUM: 53280d51bbf0c748726ed833e3c17587206c3db8
+PODFILE CHECKSUM: d12c3d6a6e46a49ce8c30fd95b0bc553de06997e
 
 COCOAPODS: 1.3.1
