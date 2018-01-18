@@ -20,7 +20,7 @@ const initialState = {
 };
 
 export default handleActions({
-  [changePosition](state: State, { position }: State){
+  [changePosition](state: State, { payload: { position } }){
     return { ...state, position };
   },
 }, initialState);

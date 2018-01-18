@@ -29,6 +29,4 @@ const component = ({ hasError, setHasError, children }: Props) => {
   return children;
 };
 
-const ErrorBoundary = boundLifecycle({ onCatch })(component);
-
-export default ErrorBoundary;
+export default boundLifecycle({ onCatch })(component);

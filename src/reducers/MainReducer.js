@@ -2,10 +2,6 @@
 import { handleActions } from 'redux-actions';
 import actions from 'src/actions';
 
-type State = {
-  hasError: boolean
-}
-
 const { setHasError } = actions;
 
 const initialState = {
@@ -13,7 +9,7 @@ const initialState = {
 };
 
 export default handleActions({
-  [setHasError](state, { hasError }: State){
+  [setHasError](state, { payload: { hasError } }){
     return { ...state, hasError };
   }
 }, initialState);
