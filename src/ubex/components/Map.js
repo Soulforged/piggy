@@ -36,7 +36,7 @@ const _onGeoSuccess = ({ position, setPosition }: MapProps, { coords }) => (
 const _onGeoError = error => console.log(error);
 
 const withGeo = boundLifecycle({
-  didMount(props) {
+  didMount(props: MapProps) {
     navigator.geolocation.getCurrentPosition(
       success => _onGeoSuccess(props, success),
       _onGeoError

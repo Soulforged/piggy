@@ -3,7 +3,8 @@
 import React from 'react';
 import { TextInput, View, Button } from 'react-native';
 import { compose, withState } from 'recompose';
-import type { NavigationScreenProp } from 'react-navigation/src/TypeDefinition';
+
+import type { NavigationScreenProp } from 'src/types';
 
 import styles from 'src/Styles';
 import actions from 'src/actions';

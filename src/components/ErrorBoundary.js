@@ -11,9 +11,10 @@ type Props = {
 };
 
 const onCatch = (error: Error, info: string, { setHasError }: Props) => {
-  setHasError(true);
   // You can also log the error to an error reporting service
-  console.log(error, info);
+  console.log(error);
+  console.log(info);
+  setHasError(true);
 };
 
 const component = ({ hasError, setHasError, children }: Props) => {

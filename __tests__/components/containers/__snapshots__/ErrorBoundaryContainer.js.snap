@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calls setHasError action on catch 1`] = `<View />`;
+
+exports[`renders succesfully 1`] = `<View />`;

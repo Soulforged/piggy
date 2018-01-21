@@ -5,11 +5,13 @@ import * as ReactNavigation from 'react-navigation';
 import { Action, ThunkAction, PromiseAction, connect } from 'react-redux';
 import { boundLifecycle } from 'recompose-ext';
 
+import type { NavigationState } from 'src/types';
+
 import AppNavigation from './AppNavigation';
 
 type Props = {
   dispatch: (action: Action | ThunkAction | PromiseAction) => any,
-  nav: Object
+  nav: NavigationState
 };
 
 const component = ({ dispatch, nav }: Props) => {

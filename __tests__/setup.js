@@ -5,23 +5,6 @@ jest.mock('react-native-maps', () => {
   const MockCallout = props => <MapView.Callout {...props} />;
   const MockMarker = props => <MapView.Marker {...props} />;
   const MockMapView = props => <MapView {...props} />;
-  // class MockCallout extends React.PureComponent {
-  //   render() {
-  //     return React.createElement('Callout', this.props, this.props.children);
-  //   }
-  // }
-
-  // class MockMarker extends React.PureComponent {
-  //   render() {
-  //     return React.createElement('Marker', this.props, this.props.children);
-  //   }
-  // }
-  //
-  // class MockMapView extends React.PureComponent {
-  //   render() {
-  //     return React.createElement('MapView', this.props, this.props.children);
-  //   }
-  // }
 
   MockCallout.propTypes = MapView.Callout.propTypes;
   MockMarker.propTypes = MapView.Marker.propTypes;
