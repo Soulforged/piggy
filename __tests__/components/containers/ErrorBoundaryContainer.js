@@ -9,7 +9,7 @@ import createStore from 'src/reduxconf';
 import actions from 'src/actions';
 import { ErrorBoundary } from 'src/components';
 
-const { setHasError } = actions;
+const { setError } = actions;
 const store = createStore();
 
 const component = () => (
@@ -25,8 +25,8 @@ it('renders succesfully', () => {
   expect(rendered).toMatchSnapshot();
 });
 
-it('calls setHasError action on catch', () => {
+it('calls setError action on catch', () => {
+  store.dispatch(setError(new Error('message')));
   const rendered = renderer.create(component()).toJSON();
-  store.dispatch(setHasError(true));
   expect(rendered).toMatchSnapshot();
 });

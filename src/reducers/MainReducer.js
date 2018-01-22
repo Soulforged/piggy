@@ -2,14 +2,14 @@
 import { handleActions } from 'redux-actions';
 import actions from 'src/actions';
 
-const { setHasError } = actions;
+const { setError } = actions;
 
 const initialState = {
-  hasError: false
+  error: false
 };
 
 export default handleActions({
-  [setHasError](state, { payload: { hasError } }){
-    return { ...state, hasError };
+  [setError](state, { payload: error }){
+    return { ...state, error };
   }
 }, initialState);

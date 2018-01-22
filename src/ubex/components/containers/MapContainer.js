@@ -8,7 +8,7 @@ import type { MapProps } from 'ubex/Types';
 
 const { changePosition } = actions;
 
-const mapStateToProps = ({ position }: MapProps) => ({ position });
+const mapStateToProps = ({ ubex: { position } }: MapProps) => ({ position });
 
 const mapDispatchToProps = dispatch => (
   {

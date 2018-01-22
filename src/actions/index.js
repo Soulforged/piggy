@@ -3,5 +3,5 @@ import { createActions } from 'redux-actions';
 
 export default createActions({
   LOGIN: () => ({}),
-  SET_HAS_ERROR: (hasError: boolean) => ({ hasError })
+  SET_ERROR: (error: Error | false) => error
 });

@@ -3,7 +3,7 @@
 import actions from 'src/actions';
 import { nav, ui } from 'src/reducers';
 
-const { login, setHasError } = actions;
+const { login, setError } = actions;
 
 it('navigates to main on login success', () => {
   const newState = nav({}, login());
@@ -11,12 +11,13 @@ it('navigates to main on login success', () => {
   expect(newState.routes[0].routeName).toBe('Main');
 });
 
-it('enters error state when setHasError(true)', () => {
-  const newState = ui({ hasError: false }, setHasError(true));
-  expect(newState).toEqual({ hasError: true });
+it('enters error state when setError(error)', () => {
+  const error = new Error('message');
+  const newState = ui({ error: false }, setError(error));
+  expect(newState).toEqual({ error });
 });
 
-it('restores from error when setHasError(false)', () => {
-  const newState = ui({ hasError: true }, setHasError(false));
-  expect(newState).toEqual({ hasError: false });
+it('restores from error when setError(false)', () => {
+  const newState = ui({ error: true }, setError(false));
+  expect(newState).toEqual({ error: false });
 });
