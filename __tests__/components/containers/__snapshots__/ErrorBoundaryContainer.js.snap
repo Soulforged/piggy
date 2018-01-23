@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`calls setError action on catch 1`] = `
+exports[`displays appropriate view on error 1`] = `
 <View>
   <Text
     accessible={true}

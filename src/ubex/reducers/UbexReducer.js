@@ -2,7 +2,7 @@
 import { handleActions } from 'redux-actions';
 import actions from 'ubex/actions';
 
-import type { Region } from 'ubex/Types';
+import type { Region } from 'ubex/types';
 
 type State = {
   position: Region,

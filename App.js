@@ -7,12 +7,22 @@ import createStore from 'src/reduxconf';
 import { ErrorBoundary } from 'src/components';
 import AppNavigation from 'src/nav';
 
-const store = createStore();
+import type { Store } from 'redux';
 
-export default () => (
-  <Provider store={store}>
+type Props = {
+  store?: Store
+}
+
+const App = (props: Props) => (
+  <Provider store={props.store}>
     <ErrorBoundary>
       <AppNavigation />
     </ErrorBoundary>
   </Provider>
 );
+
+App.defaultProps = {
+  store: createStore()
+};
+
+export default App;

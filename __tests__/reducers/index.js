@@ -18,6 +18,6 @@ it('enters error state when setError(error)', () => {
 });
 
 it('restores from error when setError(false)', () => {
-  const newState = ui({ error: true }, setError(false));
+  const newState = ui({ error: {} }, setError(false));
   expect(newState).toEqual({ error: false });
 });

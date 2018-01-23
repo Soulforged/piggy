@@ -6,12 +6,20 @@ module.exports = {
   testPathIgnorePatterns: [
     'node_modules/',
     'assets/',
-    '__tests__/setup.js'
+    '__tests__/setup.js',
+    '__tests__/setupEnzyme.js',
+    '__tests__/setupStoreMock.js'
   ],
   transformIgnorePatterns: [
     'node_modules/(?!(react-native|native-base|react-navigation|react-native-maps|recompose-ext|react-native-vector-icons)/)'
   ],
-  setupFiles: ['./__tests__/setup.js'],
+  setupFiles: [
+    './__tests__/setup.js',
+    './__tests__/setupEnzyme.js'
+  ],
+  snapshotSerializers: [
+    'enzyme-to-json/serializer'
+  ],
   globals: {
     navigator: {}
   }

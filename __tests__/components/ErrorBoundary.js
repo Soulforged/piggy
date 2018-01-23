@@ -14,5 +14,5 @@ const component = props => (
 it('renders without crashing', () => {
   const setError = jest.fn();
   const rendered = renderer.create(component({ setError })).toJSON();
-  expect(rendered).toBeTruthy();
+  expect(rendered).toMatchSnapshot();
 });

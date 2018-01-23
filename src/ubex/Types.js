@@ -8,3 +8,7 @@ export type MapProps = {
   position: Region,
   setPosition: (newPos: Region) => void
 };
+
+export type State = {
+  ubex: MapProps
+}

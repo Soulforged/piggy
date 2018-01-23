@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<Navigator
+  navigation={
+    Object {
+      "dispatch": [Function],
+      "goBack": [Function],
+      "navigate": [Function],
+      "setParams": [Function],
+      "state": Object {
+        "index": 0,
+        "routes": Array [
+          Object {
+            "index": 0,
+            "key": "Init-id-1482363367071-0",
+            "routeName": "Drawer",
+            "routes": Array [
+              Object {
+                "index": 0,
+                "key": "DrawerClose",
+                "routeName": "DrawerClose",
+                "routes": Array [
+                  Object {
+                    "key": "Home",
+                    "routeName": "Home",
+                  },
+                ],
+              },
+              Object {
+                "key": "DrawerOpen",
+                "routeName": "DrawerOpen",
+              },
+              Object {
+                "key": "DrawerToggle",
+                "routeName": "DrawerToggle",
+              },
+            ],
+          },
+        ],
+      },
+    }
+  }
+/>
+`;

@@ -1,3 +1,14 @@
+jest.mock('NativeModules', () => (
+  {
+    UIManager: {
+      AIRMapLite: {},
+      AIRMap: {},
+    },
+    AIRMapLite: {},
+    AIRMap: {},
+  }
+));
+
 jest.mock('react-native-maps', () => {
   const React = require.requireActual('react');
   const MapView = require.requireActual('react-native-maps');
@@ -30,6 +41,8 @@ jest.mock('Linking', () => {
 jest.mock('WebView', () => 'WebView');
 
 jest.mock('DatePickerIOS', () => 'DatePickerIOS');
+
+Date.now = jest.fn(() => 1482363367071);
 
 // Globals
 

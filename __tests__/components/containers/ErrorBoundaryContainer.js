@@ -25,7 +25,7 @@ it('renders succesfully', () => {
   expect(rendered).toMatchSnapshot();
 });
 
-it('calls setError action on catch', () => {
+it('displays appropriate view on error', () => {
   store.dispatch(setError(new Error('message')));
   const rendered = renderer.create(component()).toJSON();
   expect(rendered).toMatchSnapshot();

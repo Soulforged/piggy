@@ -8,7 +8,7 @@ import MapView from 'react-native-maps';
 
 import styles from 'src/Styles';
 
-import type { MapProps } from 'ubex/Types';
+import type { MapProps } from 'ubex/types';
 
 const component = ({ position, setPosition }: MapProps) => (
   <View style={styles.container}>
