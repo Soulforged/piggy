@@ -1,21 +1,16 @@
-jest.mock('NativeModules', () => (
-  {
-    UIManager: {
-      AIRMapLite: {},
-      AIRMap: {},
-    },
-    AIRMapLite: {},
-    AIRMap: {},
-  }
-));
-
 jest.mock('react-native-maps', () => {
   const React = require.requireActual('react');
   const MapView = require.requireActual('react-native-maps');
 
-  const MockCallout = props => <MapView.Callout {...props} />;
-  const MockMarker = props => <MapView.Marker {...props} />;
-  const MockMapView = props => <MapView {...props} />;
+  const MockCallout = props => (
+    React.createElement('MapView.Callout', props, props.children)
+  );
+  const MockMarker = props => (
+    React.createElement('MapView.Marker', props, props.children)
+  );
+  const MockMapView = props => (
+    React.createElement('MapView', props, props.children)
+  );
 
   MockCallout.propTypes = MapView.Callout.propTypes;
   MockMarker.propTypes = MapView.Marker.propTypes;

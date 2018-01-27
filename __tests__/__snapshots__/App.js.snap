@@ -173,7 +173,58 @@ exports[`renders home screen on login 1`] = `
                         "zIndex": 0,
                       }
                     }
-                  />
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flex": 1,
+                        }
+                      }
+                    >
+                      <MapView
+                        region={
+                          Object {
+                            "latitude": 37.78825,
+                            "latitudeDelta": 0.0922,
+                            "longitude": -122.4324,
+                            "longitudeDelta": 0.0421,
+                          }
+                        }
+                        style={
+                          Object {
+                            "bottom": 0,
+                            "left": 0,
+                            "position": "absolute",
+                            "right": 0,
+                            "top": 0,
+                          }
+                        }
+                      />
+                      <TextInput
+                        allowFontScaling={true}
+                        onChangeText={[Function]}
+                        placeholder="¿Qué querés enviar?"
+                        style={
+                          Object {
+                            "backgroundColor": "white",
+                            "height": 44,
+                            "margin": 10,
+                          }
+                        }
+                      />
+                      <TextInput
+                        allowFontScaling={true}
+                        placeholder="¿A dónde?"
+                        style={
+                          Object {
+                            "backgroundColor": "white",
+                            "height": 44,
+                            "margin": 10,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
                   <View
                     accessibilityComponentType={undefined}
                     accessibilityLabel={undefined}
