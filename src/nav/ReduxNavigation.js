@@ -23,21 +23,24 @@ const component = ({ dispatch, nav }: Props) => {
   return <AppNavigation navigation={navigation} />;
 };
 
-const _onBackPress = ({ dispatch, nav }) => {
-  if (nav.index === 0) {
-    return false;
-  }
-  dispatch(ReactNavigation.NavigationActions.back());
-  return true;
-};
+// FIXME did not find any way to do this using constants
+let _onBackPress; // eslint-disable-line immutable/no-let
 
 const withAndroidHandlers = boundLifecycle({
   didMount(props) {
-    BackHandler.addEventListener('hardwareBackPress', _onBackPress.bind(props));
+    _onBackPress = () => {
+      const { dispatch, nav } = props;
+      if (nav.index === 0) {
+        return false;
+      }
+      dispatch(ReactNavigation.NavigationActions.back());
+      return true;
+    };
+    BackHandler.addEventListener('hardwareBackPress', _onBackPress);
   },
 
-  willUnmount(props) {
-    BackHandler.removeEventListener('hardwareBackPress', _onBackPress.bind(props));
+  willUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', _onBackPress);
   }
 });
 

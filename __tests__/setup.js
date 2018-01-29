@@ -1,3 +1,5 @@
+jest.mock('BackHandler');
+
 jest.mock('react-native-maps', () => {
   const React = require.requireActual('react');
   const MapView = require.requireActual('react-native-maps');
