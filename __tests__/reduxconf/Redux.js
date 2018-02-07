@@ -11,5 +11,5 @@ it('redux logger in __DEV__', () => {
 it('no logger in production', () => {
   __DEV__ = false;
   expect(__DEV__).toBe(false);
-  expect(middlewares()).toEqual([]);
+  expect(middlewares()).not.toContain(reduxLogger);
 });

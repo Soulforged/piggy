@@ -1,1 +1,1 @@
-export * from 'react-navigation/src/TypeDefinition';
+export * from 'react-navigation';

@@ -4,35 +4,48 @@ exports[`renders without crashing 1`] = `
 <Navigator
   navigation={
     Object {
+      "addListener": [Function],
       "dispatch": [Function],
       "goBack": [Function],
       "navigate": [Function],
+      "pop": [Function],
+      "popToTop": [Function],
+      "push": [Function],
+      "replace": [Function],
       "setParams": [Function],
       "state": Object {
         "index": 0,
+        "isTransitioning": false,
+        "key": "StackRouterRoot",
         "routes": Array [
           Object {
             "index": 0,
+            "isTransitioning": false,
             "key": "Init-id-1482363367071-0",
             "routeName": "Drawer",
             "routes": Array [
               Object {
                 "index": 0,
+                "isTransitioning": false,
                 "key": "DrawerClose",
+                "params": undefined,
                 "routeName": "DrawerClose",
                 "routes": Array [
                   Object {
                     "key": "Home",
+                    "params": undefined,
                     "routeName": "Home",
                   },
                 ],
               },
               Object {
                 "key": "DrawerOpen",
+                "params": undefined,
                 "routeName": "DrawerOpen",
               },
               Object {
                 "key": "DrawerToggle",
+                "params": undefined,
                 "routeName": "DrawerToggle",
               },
             ],

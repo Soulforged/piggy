@@ -11,7 +11,7 @@ module.exports = {
     '__tests__/setupStoreMock.js'
   ],
   transformIgnorePatterns: [
-    'node_modules/(?!(react-native|native-base|react-navigation|react-native-maps|recompose-ext|react-native-vector-icons)/)'
+    'node_modules/(?!(react-native|native-base|react-navigation|react-native-maps|recompose-ext|react-native-vector-icons|react-navigation-redux-helpers)/)'
   ],
   setupFiles: [
     './__tests__/setup.js',

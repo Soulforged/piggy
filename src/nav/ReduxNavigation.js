@@ -2,22 +2,21 @@
 import React from 'react';
 import { BackHandler } from 'react-native';
 import * as ReactNavigation from 'react-navigation';
-import { Action, ThunkAction, PromiseAction, connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { boundLifecycle } from 'recompose-ext';
+import { createReduxBoundAddListener } from 'react-navigation-redux-helpers';
 
-import type { NavigationState } from 'src/types';
+import type { NavigationScreenProp } from 'src/types';
 
 import AppNavigation from './AppNavigation';
 
-type Props = {
-  dispatch: (action: Action | ThunkAction | PromiseAction) => any,
-  nav: NavigationState
-};
+const addListener = createReduxBoundAddListener('root');
 
-const component = ({ dispatch, nav }: Props) => {
+const component = ({ dispatch, nav }: NavigationScreenProp) => {
   const navigation = ReactNavigation.addNavigationHelpers({
     dispatch,
-    state: nav
+    state: nav,
+    addListener
   });
 
   return <AppNavigation navigation={navigation} />;
@@ -33,7 +32,7 @@ const withAndroidHandlers = boundLifecycle({
       if (nav.index === 0) {
         return false;
       }
-      dispatch(ReactNavigation.NavigationActions.back());
+      dispatch(ReactNavigation.NavigationActions.back({}));
       return true;
     };
     BackHandler.addEventListener('hardwareBackPress', _onBackPress);

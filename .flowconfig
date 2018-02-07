@@ -43,6 +43,11 @@ module.file_ext=.jsx
 module.file_ext=.json
 module.file_ext=.native.js
 
+module.file_ext=.js
+module.file_ext=.jsx
+module.file_ext=.json
+module.file_ext=.native.js
+
 suppress_type=$FlowIssue
 suppress_type=$FlowFixMe
 suppress_type=$FlowFixMeProps
@@ -58,8 +63,8 @@ unsafe.enable_getters_and_setters=true
 [lints]
 all=error
 untyped-type-import=off
-;untyped-import=off
-;unclear-type=warn
+untyped-import=off
+unclear-type=warn
 
 [version]
-^0.58.0
+^0.61.0

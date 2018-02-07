@@ -446,37 +446,49 @@ exports[`renders home screen on login 1`] = `
               mode="float"
               navigation={
                 Object {
+                  "addListener": [Function],
                   "dispatch": [Function],
                   "goBack": [Function],
                   "navigate": [Function],
+                  "pop": [Function],
+                  "popToTop": [Function],
+                  "push": [Function],
+                  "replace": [Function],
                   "setParams": [Function],
                   "state": Object {
                     "index": 0,
+                    "isTransitioning": false,
                     "key": "id-1482363367071-13",
                     "routeName": "Main",
                     "routes": Array [
                       Object {
                         "index": 0,
+                        "isTransitioning": false,
                         "key": "Init-id-1482363367071-12",
                         "routeName": "Drawer",
                         "routes": Array [
                           Object {
                             "index": 0,
+                            "isTransitioning": false,
                             "key": "DrawerClose",
+                            "params": undefined,
                             "routeName": "DrawerClose",
                             "routes": Array [
                               Object {
                                 "key": "Home",
+                                "params": undefined,
                                 "routeName": "Home",
                               },
                             ],
                           },
                           Object {
                             "key": "DrawerOpen",
+                            "params": undefined,
                             "routeName": "DrawerOpen",
                           },
                           Object {
                             "key": "DrawerToggle",
+                            "params": undefined,
                             "routeName": "DrawerToggle",
                           },
                         ],
@@ -618,17 +630,12 @@ exports[`renders home screen on login 1`] = `
                         style={
                           Array [
                             Object {
-                              "backgroundColor": "transparent",
+                              "overflow": "hidden",
                             },
-                            Array [
-                              Object {
-                                "overflow": "hidden",
-                              },
-                              Object {
-                                "backgroundColor": "#007AFF",
-                                "borderRadius": 5,
-                              },
-                            ],
+                            Object {
+                              "backgroundColor": "#007AFF",
+                              "borderRadius": 5,
+                            },
                           ]
                         }
                         testID={undefined}
@@ -944,19 +951,25 @@ exports[`renders without crashing 1`] = `
               mode="float"
               navigation={
                 Object {
+                  "addListener": [Function],
                   "dispatch": [Function],
                   "goBack": [Function],
                   "navigate": [Function],
+                  "pop": [Function],
+                  "popToTop": [Function],
+                  "push": [Function],
+                  "replace": [Function],
                   "setParams": [Function],
                   "state": Object {
                     "index": 0,
+                    "isTransitioning": false,
                     "key": "Init-id-1482363367071-11",
                     "routeName": "Login",
                     "routes": Array [
                       Object {
                         "key": "Init-id-1482363367071-10",
+                        "params": undefined,
                         "routeName": "Login",
-                        "type": undefined,
                       },
                     ],
                   },
