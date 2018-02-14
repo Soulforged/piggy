@@ -1,5 +1,5 @@
 //@flow
-
+import HomeScreen from './LocationSelectScreen';
 import HomeScreen from './HomeScreen';
 
-export { HomeScreen }; // eslint-disable-line import/prefer-default-export
+export { HomeScreen, LocationSelectScreen };

@@ -8,7 +8,10 @@ import MapView from 'react-native-maps';
 
 import styles from 'src/Styles';
 
+import actions from 'ubex/actions';
 import type { MapProps } from 'ubex/types';
+
+const { showPredictions } = actions;
 
 const component = ({ position, setPosition }: MapProps) => (
   <View style={styles.container}>
@@ -19,7 +22,7 @@ const component = ({ position, setPosition }: MapProps) => (
     <TextInput
       style={styles.input}
       placeholder='¿Qué querés enviar?'
-      onChangeText={setPosition}
+      onFocus={() => navigation.dispatch(showPredictions())}
     />
     <TextInput style={styles.input} placeholder='¿A dónde?' />
   </View>

@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import { Screens as UbexScreens } from 'ubex';
 
-const { HomeScreen } = UbexScreens;
+const { HomeScreen, LocationSelectScreen } = UbexScreens;
 
 const Navigator = DrawerNavigator({
   Home: {
@@ -22,7 +22,8 @@ const Navigator = DrawerNavigator({
 
 const MainNavigation = StackNavigator(
   {
-    Drawer: { screen: Navigator }
+    Drawer: { screen: Navigator },
+    LocationSelect: { screen: LocationSelectScreen },
   },
   {
     headerMode: 'float',
