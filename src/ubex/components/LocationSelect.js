@@ -14,19 +14,22 @@ import actions from 'ubex/actions';
 import type { MapProps } from 'ubex/types';
 
 const { fetchPredictions } = actions;
-const renderPred = { item } => (
-
+const renderItem = { item } => (
+  <Text>{ item.description }</Text>
 );
 const predictionsComponent = ({ predictions }) => {
   if(predictions.fetching){
     return <ActivityIndicator />
   }
-  return <FlatList data={predictions.items} renderItem={renderPred} />
+  if(predictions.error){
+    return <Text>{predictions.error}</Text>
+  }
+  return <FlatList data={predictions.items} renderItem={renderItem} />
 };
 
-export default ({ predictions, fetchPredictions }) => (
+export default ({ predictions, fetchPredictions } = props) => (
   <View style={styles.container}>
     <TextInput style={styles.input} placeholder='¿A dónde?' />
-
+    {predictionsComponent(props)}
   </View>
 );
