@@ -6,13 +6,14 @@ import Map from 'ubex/components/Map';
 
 import type { State } from 'ubex/types';
 
-const { changePosition } = actions;
+const { changePosition, showPredictions } = actions;
 
 const mapStateToProps = ({ ubex: { position } }: State) => ({ position });
 
 const mapDispatchToProps = dispatch => (
   {
-    setPosition: pos => dispatch(changePosition(pos))
+    setPosition: pos => dispatch(changePosition(pos)),
+    showPredictions: () => dispatch(showPredictions())
   }
 );
 

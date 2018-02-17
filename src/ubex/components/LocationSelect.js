@@ -13,8 +13,7 @@ import styles from 'src/Styles';
 import actions from 'ubex/actions';
 import type { MapProps } from 'ubex/types';
 
-const { fetchPredictions } = actions;
-const renderItem = { item } => (
+const renderItem = ({ item }) => (
   <Text>{ item.description }</Text>
 );
 const predictionsComponent = ({ predictions }) => {
@@ -27,9 +26,12 @@ const predictionsComponent = ({ predictions }) => {
   return <FlatList data={predictions.items} renderItem={renderItem} />
 };
 
-export default ({ predictions, fetchPredictions } = props) => (
+export default (props) => (
   <View style={styles.container}>
-    <TextInput style={styles.input} placeholder='¿A dónde?' />
+    <TextInput
+      style={styles.input}
+      placeholder='¿A dónde?'
+      onChangeText={props.fetchPredictions}/>
     {predictionsComponent(props)}
   </View>
 );

@@ -10,7 +10,6 @@ type State = {
 
 const {
   changePosition,
-  fetchPredictions,
   requestPredictions,
   receivePredictions,
   receivePredictionsError,
