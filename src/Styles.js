@@ -12,6 +12,20 @@ const SharedStyles = StyleSheet.create({
   icon: {
     height: 44,
     width: 44
+  },
+  list: {
+    backgroundColor: 'white'
+  },
+  listItem: {
+    backgroundColor: 'lightblue',
+    borderRadius: 5,
+    margin: 5
+  },
+  margin: {
+    margin: 10
+  },
+  pad: {
+    padding: 10
   }
 });
 

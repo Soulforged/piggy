@@ -6,16 +6,14 @@ import LocationSelect from 'ubex/components/LocationSelect';
 
 import type { State } from 'ubex/types';
 
-console.log(actions);
-
-const { changePosition, fetchPredictions } = actions;
-
+const { changePosition, fetchPredictions, setPositionById } = actions;
+console.log(setPositionById);
 const mapStateToProps = ({ ubex: { predictions } }: State) => ({ predictions });
 
 const mapDispatchToProps = dispatch => (
   {
-    setPosition: pos => dispatch(changePosition(pos)),
-    fetchPredictions: desc => dispatch(fetchPredictions(desc))
+    fetchPredictions: desc => dispatch(fetchPredictions(desc)),
+    setPositionById: id => dispatch(setPositionById(id)),
   }
 );
 

@@ -23,8 +23,12 @@ const initialState = {
     longitudeDelta: 0.0421
   },
   predictions: {
-    fetching: true,
+    fetching: false,
     items: []
+  },
+  locations: {
+    byIds: {},
+    allIds: []
   }
 };
 
@@ -39,10 +43,15 @@ export default handleActions({
     return { ...state, predictions: {
       fetching: false,
       lastUpdated,
-      items: locations
+      items: predictions
     }}
   },
   [receivePredictionsError](state: State, { payload: { error } }){
     return { ...state, predictions: { fetching: false, items: [], error }}
-  }
+  },
+  [receivePlaceDetails](state = { locations }: State, { payload: { details } }){
+    const allIds = [...locations.allIds, details.id];
+    const byIds = { ...loacations.byIds, [details.id]: details};
+    return { ...state, locations: { allIds, byIds }}
+  },
 }, initialState);

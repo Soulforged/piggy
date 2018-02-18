@@ -2,10 +2,12 @@
 import React from 'react';
 import {
   ActivityIndicator,
+  Button,
   StyleSheet,
   TextInput,
   View,
-  FlatList
+  FlatList,
+  Text
 } from 'react-native';
 
 import styles from 'src/Styles';
@@ -13,25 +15,36 @@ import styles from 'src/Styles';
 import actions from 'ubex/actions';
 import type { MapProps } from 'ubex/types';
 
-const renderItem = ({ item }) => (
-  <Text>{ item.description }</Text>
-);
-const predictionsComponent = ({ predictions }) => {
+const predictionsComponent = ({ predictions, setPositionById }) => {
   if(predictions.fetching){
     return <ActivityIndicator />
   }
   if(predictions.error){
     return <Text>{predictions.error}</Text>
   }
-  return <FlatList data={predictions.items} renderItem={renderItem} />
+  const renderItem = ({ item }) => (
+    <Button
+      title={item.description}
+      style={[styles.listItem, styles.pad]}
+      onPress={() => setPositionById(item.id)}
+    />
+  );
+  return (
+    <FlatList
+        data={predictions.items}
+        renderItem={renderItem}
+        style={[styles.list, styles.pad]} />
+  )
 };
 
 export default (props) => (
   <View style={styles.container}>
     <TextInput
+      autoFocus
+      clearButtonMode='while-editing'
       style={styles.input}
       placeholder='¿A dónde?'
-      onChangeText={props.fetchPredictions}/>
+      onEndEditing={(e) => props.fetchPredictions(e.nativeEvent.text)}/>
     {predictionsComponent(props)}
   </View>
 );
