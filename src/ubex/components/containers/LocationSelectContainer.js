@@ -7,7 +7,7 @@ import LocationSelect from 'ubex/components/LocationSelect';
 import type { State } from 'ubex/types';
 
 const { changePosition, fetchPredictions, setPositionById } = actions;
-console.log(setPositionById);
+
 const mapStateToProps = ({ ubex: { predictions } }: State) => ({ predictions });
 
 const mapDispatchToProps = dispatch => (

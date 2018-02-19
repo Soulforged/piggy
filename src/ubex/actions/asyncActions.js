@@ -8,7 +8,7 @@ const {
   requestPlaceDetails,
   receivePlaceDetailsError,
   receivePlaceDetails,
-  setPosition
+  changePosition
 } = actions;
 
 export const fetchPredictions = desc => dispatch => {
@@ -34,7 +34,9 @@ const fetchPlaceDetails = id => dispatch => {
     });
 };
 
-export const setPositionById = id => dispatch => (
-  dispatch(fetchPlaceDetails(id))
-  .then(() => dispatch(setPosition(getState().locations.byIds[id].geometry.location)))
+export const setPositionById = id => (dispatch, getState) => (
+  dispatch(fetchPlaceDetails(id)).then(() => {
+    const location = getState().ubex.locations.byIds[id].geometry.location;
+    dispatch(changePosition(location))
+  })
 );

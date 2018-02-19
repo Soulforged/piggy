@@ -13,6 +13,7 @@ const {
   requestPredictions,
   receivePredictions,
   receivePredictionsError,
+  receivePlaceDetails,
 } = actions;
 
 const initialState = {
@@ -49,9 +50,10 @@ export default handleActions({
   [receivePredictionsError](state: State, { payload: { error } }){
     return { ...state, predictions: { fetching: false, items: [], error }}
   },
-  [receivePlaceDetails](state = { locations }: State, { payload: { details } }){
-    const allIds = [...locations.allIds, details.id];
-    const byIds = { ...loacations.byIds, [details.id]: details};
+  [receivePlaceDetails](state: State, { payload: details }){
+    const { locations } = state;
+    const allIds = [...locations.allIds, details.place_id];
+    const byIds = { ...locations.byIds, [details.place_id]: details};
     return { ...state, locations: { allIds, byIds }}
   },
 }, initialState);
