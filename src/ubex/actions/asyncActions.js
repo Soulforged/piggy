@@ -1,6 +1,8 @@
 //@flow
 import actions from './actions';
 
+import type { NavigationScreenProp } from 'src/types';
+
 const {
   requestPredictions,
   receivePredictionsError,
@@ -11,7 +13,7 @@ const {
   changePosition
 } = actions;
 
-export const fetchPredictions = desc => dispatch => {
+export const fetchPredictions = (desc: string) => (dispatch: (a: any) => any) => {
   dispatch(requestPredictions(desc));
   return fetch(`https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${desc}&types=geocode&key=AIzaSyDg3wJ4iMPxJoSNjIhslhGbz85ZOw8T7NE`)
     .then(
@@ -21,22 +23,19 @@ export const fetchPredictions = desc => dispatch => {
     .then(json => dispatch(receivePredictions(json)));
 };
 
-const fetchPlaceDetails = id => dispatch => {
+const fetchPlaceDetails = (id: string) => (dispatch: (a: any) => any) => {
   dispatch(requestPlaceDetails(id));
   return fetch(`https://maps.googleapis.com/maps/api/place/details/json?placeid=${id}&key=AIzaSyDg3wJ4iMPxJoSNjIhslhGbz85ZOw8T7NE`)
     .then(
       response => response.json(),
       error => dispatch(receivePlaceDetailsError(error.message))
     )
-    .then(json => {
-      console.log(json);
-      return dispatch(receivePlaceDetails(json))
-    });
+    .then(json => dispatch(receivePlaceDetails(json)));
 };
 
-export const setPositionById = id => (dispatch, getState) => (
+export const setPositionById = (id: string) => (dispatch: (a: any) => any, getState: () => any) => (
   dispatch(fetchPlaceDetails(id)).then(() => {
-    const location = getState().ubex.locations.byIds[id].geometry.location;
-    dispatch(changePosition(location))
+    const { lat, lng } = getState().ubex.locations.byIds[id].geometry.location;
+    return dispatch(changePosition({ latitude: lat, longitude: lng }));
   })
 );

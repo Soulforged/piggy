@@ -10,7 +10,12 @@ import styles from 'src/Styles';
 
 import type { MapProps } from 'ubex/types';
 
-const component = ({ position, setPosition, showPredictions }: MapProps) => (
+type Props = {
+  ...MapProps,
+  showPredictions: () => any 
+};
+
+const component = ({ position, showPredictions }: Props) => (
   <View style={styles.container}>
     <MapView
       style={StyleSheet.absoluteFillObject}
@@ -23,7 +28,8 @@ const component = ({ position, setPosition, showPredictions }: MapProps) => (
     <TextInput
       style={styles.input}
       placeholder='¿A dónde?'
-      onFocus={showPredictions} />
+      onFocus={showPredictions}
+    />
   </View>
 );
 

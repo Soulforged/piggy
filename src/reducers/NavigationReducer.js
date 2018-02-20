@@ -8,7 +8,7 @@ import ubexActions from 'ubex/actions';
 import type { NavigationAction, NavigationState } from 'src/types';
 
 const { login } = actions;
-const { showPredictions } = ubexActions;
+const { showPredictions, changePosition } = ubexActions;
 
 /* FIXME the key = null => root navigator is a limitation of react-navigation
 (https://github.com/react-navigation/react-navigation/issues/2670)*/
@@ -28,6 +28,7 @@ export default ((state: NavigationState, action: NavigationAction) => {
 
   const loginType = login().type;
   const showPredictionsType = showPredictions().type;
+  const changePositionType = changePosition().type;
   switch (action.type) {
   case showPredictionsType:
     return stateForAction(NavigationActions.navigate({
@@ -35,6 +36,10 @@ export default ((state: NavigationState, action: NavigationAction) => {
     }), state);
   case loginType:
     return stateForAction(_onLogin(), state);
+  case changePositionType:
+    return stateForAction(NavigationActions.navigate({
+      routeName: 'Home'
+    }), state);
   default:
     return stateForAction(action, state);
   }

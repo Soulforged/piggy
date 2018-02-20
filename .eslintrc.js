@@ -2,7 +2,8 @@ module.exports = {
   'env': {
     'es6': true,
     'node': true,
-    'jest/globals': true
+    'jest/globals': true,
+    'react-native-globals/all': true, 
   },
   'extends': [
     'eslint:recommended',
@@ -18,7 +19,14 @@ module.exports = {
     },
     'sourceType': 'module'
   },
-  'plugins': [ 'react', 'promise', 'flowtype', 'jest', 'immutable' ],
+  'plugins': [
+    'react',
+    'promise',
+    'flowtype',
+    'jest',
+    'immutable',
+    "react-native-globals",
+  ],
   'rules': {
     'indent': ['error', 2],
     'linebreak-style': ['error','unix'],

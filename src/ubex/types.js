@@ -9,6 +9,22 @@ export type MapProps = {
   setPosition: (newPos: Region) => void
 };
 
-export type State = {
-  ubex: MapProps
+export type Predictions = {
+  fetching: boolean,
+  items: [any]
+};
+
+export type Locations = {
+  byIds: Object,
+  allIds: [string]
+};
+
+export type UbexState = {
+  ...MapProps,
+  predictions: Predictions,
+  locations: Locations
 }
+
+export type State = {
+  ubex: UbexState
+};

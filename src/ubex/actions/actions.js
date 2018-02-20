@@ -4,7 +4,7 @@ import { createActions } from 'redux-actions';
 import type { Region } from 'ubex/types';
 
 const receivePredictions = (json: Object) => ({
-  predictions: json.predictions.map( ({place_id, description}) => (
+  predictions: json.predictions.map(({ place_id, description }) => (
     { id: place_id, description, key: place_id }
   )),
   lastUpdated: Date.now()
