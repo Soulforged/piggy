@@ -11,9 +11,12 @@ import {
 
 import styles from 'src/Styles';
 
-type Props = {
+type PredictionsProps = {
   predictions: any,
   setPositionById: (id: string) => any,
+};
+
+type Props = PredictionsProps & {
   fetchPredictions: (desc: string) => any
 };
 
@@ -26,7 +29,8 @@ type Location = {
   item: LocationItem,
 };
 
-const predictionsComponent = ({ predictions, setPositionById }: Props) => {
+const predictionsComponent = (props: PredictionsProps) => {
+  const { predictions, setPositionById } = props;
   if (predictions.fetching){
     return <ActivityIndicator />;
   }
@@ -49,15 +53,18 @@ const predictionsComponent = ({ predictions, setPositionById }: Props) => {
   );
 };
 
-export default (props: Props) => (
-  <View style={styles.container}>
-    <TextInput
-      autoFocus
-      clearButtonMode='while-editing'
-      style={styles.input}
-      placeholder='¿A dónde?'
-      onEndEditing={e => props.fetchPredictions(e.nativeEvent.text)}
-    />
-    {predictionsComponent(props)}
-  </View>
-);
+export default (props: Props) => {
+  const { predictions, setPositionById, fetchPredictions } = props;
+  return (
+    <View style={styles.container}>
+      <TextInput
+        autoFocus
+        clearButtonMode='while-editing'
+        style={styles.input}
+        placeholder='¿A dónde?'
+        onEndEditing={e => fetchPredictions(e.nativeEvent.text)}
+      />
+      {predictionsComponent({ predictions, setPositionById })}
+    </View>
+  );
+};

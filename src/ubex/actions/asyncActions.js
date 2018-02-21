@@ -1,8 +1,6 @@
 //@flow
 import actions from './actions';
 
-import type { NavigationScreenProp } from 'src/types';
-
 const {
   requestPredictions,
   receivePredictionsError,

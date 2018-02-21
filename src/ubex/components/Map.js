@@ -12,7 +12,7 @@ import type { MapProps } from 'ubex/types';
 
 type Props = {
   ...MapProps,
-  showPredictions: () => any 
+  showPredictions: () => any
 };
 
 const component = ({ position, showPredictions }: Props) => (
