@@ -21,7 +21,7 @@ exports[`renders without crashing 1`] = `
           Object {
             "index": 0,
             "isTransitioning": false,
-            "key": "Init-id-1482363367071-0",
+            "key": "id-1482363367071-0",
             "routeName": "Drawer",
             "routes": Array [
               Object {

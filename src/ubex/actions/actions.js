@@ -3,10 +3,14 @@ import { createActions } from 'redux-actions';
 
 import type { Region } from 'ubex/types';
 
+const prediction = ({ place_id, description }) => ({ // eslint-disable-line camelcase
+  id: place_id,
+  description,
+  key: place_id
+});
+
 const receivePredictions = (json: Object) => ({
-  predictions: json.predictions.map(({ place_id, description }) => (
-    { id: place_id, description, key: place_id }
-  )),
+  predictions: json.predictions.map(prediction),
   lastUpdated: Date.now()
 });
 

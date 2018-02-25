@@ -202,7 +202,6 @@ exports[`renders home screen on login 1`] = `
                       />
                       <TextInput
                         allowFontScaling={true}
-                        onChangeText={[Function]}
                         placeholder="¿Qué querés enviar?"
                         style={
                           Object {
@@ -214,6 +213,7 @@ exports[`renders home screen on login 1`] = `
                       />
                       <TextInput
                         allowFontScaling={true}
+                        onFocus={[Function]}
                         placeholder="¿A dónde?"
                         style={
                           Object {
@@ -293,6 +293,7 @@ exports[`renders home screen on login 1`] = `
                           <View
                             collapsable={undefined}
                             onLayout={[Function]}
+                            pointerEvents="box-none"
                             style={
                               Object {
                                 "paddingBottom": 0,
@@ -340,6 +341,7 @@ exports[`renders home screen on login 1`] = `
                                 <View
                                   collapsable={undefined}
                                   onLayout={[Function]}
+                                  pointerEvents="box-none"
                                   style={
                                     Object {
                                       "backgroundColor": "rgba(0, 0, 0, .04)",
@@ -459,12 +461,13 @@ exports[`renders home screen on login 1`] = `
                     "index": 0,
                     "isTransitioning": false,
                     "key": "id-1482363367071-13",
+                    "params": undefined,
                     "routeName": "Main",
                     "routes": Array [
                       Object {
                         "index": 0,
                         "isTransitioning": false,
-                        "key": "Init-id-1482363367071-12",
+                        "key": "id-1482363367071-12",
                         "routeName": "Drawer",
                         "routes": Array [
                           Object {
@@ -494,7 +497,6 @@ exports[`renders home screen on login 1`] = `
                         ],
                       },
                     ],
-                    "type": "Navigation/NAVIGATE",
                   },
                 }
               }
@@ -516,6 +518,7 @@ exports[`renders home screen on login 1`] = `
               <View
                 collapsable={undefined}
                 onLayout={[Function]}
+                pointerEvents="box-none"
                 style={
                   Object {
                     "backgroundColor": "#4C3E54",
@@ -963,11 +966,11 @@ exports[`renders without crashing 1`] = `
                   "state": Object {
                     "index": 0,
                     "isTransitioning": false,
-                    "key": "Init-id-1482363367071-11",
+                    "key": "id-1482363367071-11",
                     "routeName": "Login",
                     "routes": Array [
                       Object {
-                        "key": "Init-id-1482363367071-10",
+                        "key": "id-1482363367071-10",
                         "params": undefined,
                         "routeName": "Login",
                       },
@@ -993,6 +996,7 @@ exports[`renders without crashing 1`] = `
               <View
                 collapsable={undefined}
                 onLayout={[Function]}
+                pointerEvents="box-none"
                 style={
                   Object {
                     "backgroundColor": "#E73536",
