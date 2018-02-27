@@ -3,7 +3,7 @@ module.exports = {
     'es6': true,
     'node': true,
     'jest/globals': true,
-    'react-native-globals/all': true, 
+    'react-native-globals/all': true,
   },
   'extends': [
     'eslint:recommended',
@@ -30,7 +30,7 @@ module.exports = {
   'rules': {
     'indent': ['error', 2],
     'linebreak-style': ['error','unix'],
-    'quotes': ['error','single'],
+    'quotes': ['error', 'single', { 'allowTemplateLiterals': true }],
     'semi': ['error','always'],
     'no-console': 'off',
     'jsx-quotes': ['error', 'prefer-single'],

@@ -33,7 +33,7 @@ const fetchPlaceDetails = (id: string) => (dispatch: (a: any) => any) => {
 
 export const setPositionById = (id: string) => (dispatch: (a: any) => any, getState: () => any) => (
   dispatch(fetchPlaceDetails(id)).then(() => {
-    const { lat, lng } = getState().ubex.locations.byIds[id].geometry.location;
-    return dispatch(changePosition({ latitude: lat, longitude: lng }));
+    const { coordinates } = getState().ubex.locations.byIds[id];
+    return dispatch(changePosition(coordinates));
   })
 );

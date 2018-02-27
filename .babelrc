@@ -5,7 +5,8 @@
       "root": ["./src"],
       "alias": {
         "src": "./src",
-        "ubex": "./src/ubex"
+        "ubex": "./src/ubex",
+        "test": "./__tests__"
       }
     }]
   ]

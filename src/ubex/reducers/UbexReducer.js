@@ -51,8 +51,19 @@ export default handleActions({
   },
   [receivePlaceDetails](state: State, { payload: details }){
     const { locations } = state;
+    const { formatted_address, geometry } = details; // eslint-disable-line camelcase
+    const { lat, lng } = geometry.location;
     const allIds = [...locations.allIds, details.place_id];
-    const byIds = { ...locations.byIds, [details.place_id]: details };
+    const byIds = {
+      ...locations.byIds,
+      [details.place_id]: {
+        description: formatted_address,
+        coordinates: {
+          latitude: lat,
+          longitude: lng
+        }
+      }
+    };
     return { ...state, locations: { allIds, byIds } };
   },
 }, initialState);
