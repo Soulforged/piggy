@@ -22,3 +22,6 @@ android/**/build/
 android/.gradle/
 
 __coverage__/
+
+
+flow-typed/
