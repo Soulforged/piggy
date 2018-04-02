@@ -50,11 +50,9 @@ describe('ubex async actions', () => {
       lng: -121.4324,
     };
     const details = {
-      result: {
-        place_id: placeId,
-        formatted_address: description,
-        geometry: { location }
-      }
+      place_id: placeId,
+      formatted_address: description,
+      geometry: { location }
     };
     fetchMock.getOnce(
       'begin:https://maps.googleapis.com/maps/api/place/details/json?placeid=',
