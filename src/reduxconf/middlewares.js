@@ -7,9 +7,9 @@ const navMiddleware = createReactNavigationReduxMiddleware(
   state => state.nav,
 );
 
-export default () => {
+export default ({ logActions }: Object = {}) => {
   const mdws = [thunkMiddleware, navMiddleware];
-  if (__DEV__) {
+  if (logActions) {
     const { logger } = require('redux-logger'); // eslint-disable-line global-require
 
     return [...mdws, logger];

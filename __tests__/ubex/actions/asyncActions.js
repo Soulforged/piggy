@@ -3,6 +3,9 @@ import fetchMock from 'fetch-mock';
 
 import mockStore from 'test/setupStoreMock';
 import actions from 'ubex/actions';
+import ConfigService from 'src/config';
+
+const { placesApi } = ConfigService;
 
 const {
   fetchPredictions,
@@ -13,6 +16,12 @@ const {
   receivePlaceDetails,
   changePosition,
 } = actions;
+
+// const predictionsError = {
+//   error_message: 'The provided API key is invalid.',
+//   predictions: [],
+//   status: 'REQUEST_DENIED'
+// };
 
 describe('ubex async actions', () => {
   afterEach(() => {
@@ -27,18 +36,18 @@ describe('ubex async actions', () => {
       { place_id: '2', description: 'desc1' },
     ];
     fetchMock.getOnce(
-      'begin:https://maps.googleapis.com/maps/api/place/autocomplete/json?input=',
+      `begin:${placesApi}/autocomplete/json?input=`,
       { body: { predictions }, headers: { 'content-type': 'application/json' } }
     );
 
     const expectedActions = [
-      requestPredictions(placeDesc),
-      receivePredictions({ predictions }),
+      requestPredictions().type,
+      receivePredictions().type,
     ];
     const store = mockStore({ ubex: { predictions: [] } });
 
     return store.dispatch(fetchPredictions(placeDesc)).then(() => (
-      expect(store.getActions()).toEqual(expectedActions)
+      expect(store.getActions().map(a => a.type)).toEqual(expectedActions)
     ));
   });
 
@@ -55,7 +64,7 @@ describe('ubex async actions', () => {
       geometry: { location }
     };
     fetchMock.getOnce(
-      'begin:https://maps.googleapis.com/maps/api/place/details/json?placeid=',
+      `begin:${placesApi}/details/json?placeid=`,
       { body: details, headers: { 'content-type': 'application/json' } }
     );
     const coordinates = {
@@ -63,9 +72,9 @@ describe('ubex async actions', () => {
       longitude: location.lng,
     };
     const expectedActions = [
-      requestPlaceDetails(placeId),
-      receivePlaceDetails(details),
-      changePosition(coordinates),
+      requestPlaceDetails().type,
+      receivePlaceDetails().type,
+      changePosition().type,
     ];
     const store = mockStore({
       ubex: {
@@ -79,7 +88,7 @@ describe('ubex async actions', () => {
     });
 
     return store.dispatch(setPositionById(placeId)).then(() => (
-      expect(store.getActions()).toEqual(expectedActions)
+      expect(store.getActions().map(a => a.type)).toEqual(expectedActions)
     ));
   });
 });

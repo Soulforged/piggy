@@ -41,24 +41,17 @@ it('changes general position on changePosition', () => {
 
 it('loads location details on reception', () => {
   const location = {
-    place_id: '1',
-    formatted_address: 'AR',
-    geometry: {
-      lat: 12.05,
-      lng: 12.05
+    id: '1',
+    description: 'AR',
+    coordinates: {
+      latitude: 12.05,
+      longitude: 12.05
     }
   };
   const locations = {
-    allIds: ['1'],
+    allIds: [location.id],
     byIds: {
-      1: {
-        description: location.formatted_address,
-        coordinates: {
-          latitude: location.geometry.lat,
-          longitude: location.geometry.lng
-        },
-        id: '1'
-      }
+      [location.id]: location
     }
   };
   const newState = reducer(initialState, receivePlaceDetails(location));
@@ -69,24 +62,22 @@ it('loads predictions on reception', () => {
   const obj = {
     predictions: [
       {
-        place_id: '1',
+        id: '1',
         description: 'ar'
       },
       {
-        place_id: '2',
+        id: '2',
         description: 'ar1'
       },
-    ]
+    ],
+    lastUpdated: 1482363367071
   };
   const newState = reducer(initialState, receivePredictions(obj));
   expect(newState).toEqual({
     ...initialState,
     predictions: {
       fetching: false,
-      items: [
-        { id: '1', description: 'ar', key: '1' },
-        { id: '2', description: 'ar1', key: '2' }
-      ],
+      items: obj.predictions,
       lastUpdated: 1482363367071
     }
   });

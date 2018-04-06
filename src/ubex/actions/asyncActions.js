@@ -4,17 +4,17 @@ import actions from './actions';
 
 const {
   requestPredictions,
-  receivePredictionsError,
+  // receivePredictionsError,
   receivePredictions,
   requestPlaceDetails,
-  receivePlaceDetailsError,
+  // receivePlaceDetailsError,
   receivePlaceDetails,
   changePosition
 } = actions;
 
 export const fetchPredictions = (desc: string) => (dispatch: (a: any) => any) => {
   dispatch(requestPredictions(desc));
-  return places().predictions(desc).then(predictions => dispatch(receivePredictions(predictions))));
+  return places().predictions(desc).then(predictions => dispatch(receivePredictions(predictions)));
 };
 
 const fetchPlaceDetails = (id: string) => (dispatch: (a: any) => any) => {

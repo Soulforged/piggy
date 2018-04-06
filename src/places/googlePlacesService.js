@@ -12,7 +12,7 @@ const mapPrediction = ({ place_id, description }) => ({
 });
 
 const mapPredictions = (json: Object) => ({
-  predictions: json.predictions.map(prediction),
+  predictions: json.predictions.map(mapPrediction),
   lastUpdated: Date.now()
 });
 
