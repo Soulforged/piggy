@@ -1,8 +1,10 @@
 //@flow
 import Config from 'react-native-config';
-import ConfigService from 'src/config';
+import config from 'src/config';
 
-const { placesApi } = ConfigService;
+const {
+  placesApi
+} = config.endpoints
 
 /* eslint-disable camelcase */
 const mapPrediction = ({ place_id, description }) => ({
@@ -32,7 +34,7 @@ export default () => ({
       .then(response => response.json(), error => error.message)
       .then(mapPredictions)
   ),
-  place: (id) => (
+  place: (id: string) => (
     fetch(`${placesApi}/details/json?placeid=${id}&key=${Config.GOOGLE_MAPS_API_KEY}`)
       .then(response => response.json(), error => error.message)
       .then(mapPlaceDetails)

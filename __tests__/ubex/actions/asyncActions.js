@@ -3,9 +3,11 @@ import fetchMock from 'fetch-mock';
 
 import mockStore from 'test/setupStoreMock';
 import actions from 'ubex/actions';
-import ConfigService from 'src/config';
+import config from 'src/config';
 
-const { placesApi } = ConfigService;
+const {
+  placesApi
+} = config.endpoints
 
 const {
   fetchPredictions,
