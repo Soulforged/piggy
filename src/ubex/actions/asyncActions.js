@@ -1,25 +1,31 @@
 //@flow
-import places from 'src/places';
+import { placesApi } from 'src/places';
 import actions from './actions';
 
 const {
   requestPredictions,
-  // receivePredictionsError,
+  receivePredictionsError,
   receivePredictions,
   requestPlaceDetails,
-  // receivePlaceDetailsError,
+  receivePlaceDetailsError,
   receivePlaceDetails,
   changePosition
 } = actions;
 
 export const fetchPredictions = (desc: string) => (dispatch: (a: any) => any) => {
   dispatch(requestPredictions(desc));
-  return places().predictions(desc).then(predictions => dispatch(receivePredictions(predictions)));
+  return placesApi.predictions(desc).then(
+    predictions => dispatch(receivePredictions(predictions)),
+    error => dispatch(receivePredictionsError(error))
+  );
 };
 
 const fetchPlaceDetails = (id: string) => (dispatch: (a: any) => any) => {
   dispatch(requestPlaceDetails(id));
-  return places().place(id).then(place => dispatch(receivePlaceDetails(place)));
+  return placesApi.place(id).then(
+    place => dispatch(receivePlaceDetails(place)),
+    error => dispatch(receivePlaceDetailsError(error))
+  );
 };
 
 export const setPositionById = (id: string) => (dispatch: (a: any) => any, getState: () => any) => (

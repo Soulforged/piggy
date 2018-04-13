@@ -7,28 +7,46 @@ import config from 'src/config';
 
 const {
   placesApi
-} = config.endpoints
+} = config.endpoints;
 
 const {
   fetchPredictions,
   requestPredictions,
   receivePredictions,
+  receivePredictionsError,
   setPositionById,
   requestPlaceDetails,
   receivePlaceDetails,
   changePosition,
 } = actions;
 
-// const predictionsError = {
-//   error_message: 'The provided API key is invalid.',
-//   predictions: [],
-//   status: 'REQUEST_DENIED'
-// };
-
 describe('ubex async actions', () => {
   afterEach(() => {
     fetchMock.reset();
     fetchMock.restore();
+  });
+
+  it('handles predictions error', () => {
+    const placeDesc = 'desc';
+    const predictionsError = {
+      error_message: 'The provided API key is invalid.',
+      predictions: [],
+      status: 'REQUEST_DENIED'
+    };
+    fetchMock.getOnce(
+      `begin:${placesApi}/autocomplete/json?input=`,
+      { body: predictionsError, headers: { 'content-type': 'application/json' } }
+    );
+
+    const expectedActions = [
+      requestPredictions().type,
+      receivePredictionsError().type,
+    ];
+    const store = mockStore({ ubex: { predictions: [] } });
+
+    return store.dispatch(fetchPredictions(placeDesc)).then(() => (
+      expect(store.getActions().map(a => a.type)).toEqual(expectedActions)
+    ));
   });
 
   it('dispatches receivePredictions when fetching predictions succeeds', () => {
@@ -39,7 +57,7 @@ describe('ubex async actions', () => {
     ];
     fetchMock.getOnce(
       `begin:${placesApi}/autocomplete/json?input=`,
-      { body: { predictions }, headers: { 'content-type': 'application/json' } }
+      { body: { predictions, status: 'OK' }, headers: { 'content-type': 'application/json' } }
     );
 
     const expectedActions = [

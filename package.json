@@ -10,6 +10,7 @@
   "dependencies": {
     "babel-plugin-module-resolver": "^3.1.0",
     "eslint-config-airbnb": "^16.1.0",
+    "humps": "^2.0.1",
     "normalizr": "^3.2.4",
     "react": "^16.3.0-alpha.2",
     "react-native": "^0.54.2",
@@ -24,7 +25,8 @@
     "redux": "^3.7.2",
     "redux-actions": "^2.3.0",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "redux-ext": "file:lib/redux-ext"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",

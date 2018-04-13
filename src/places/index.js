@@ -1,4 +1,4 @@
 //@flow
-import places from './googlePlacesService';
+import placesApi from './googlePlacesService';
 
-export default places;
+export { placesApi }; // eslint-disable-line
